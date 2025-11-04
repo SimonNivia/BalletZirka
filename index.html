@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ballet Zirka — Asociación Cultural Ucraniana 27 de Agosto</title>
+  <meta name="description" content="Ballet Infanto-Juvenil Zirka — tradición, cultura y danza. Información, eventos y contacto.">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <style>
+    :root{--accent:#2b6cb0;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111}
+
+    header{background:linear-gradient(90deg,#ffffff00, #f0f9ff);padding:28px 18px;border-bottom:1px solid #e6eef8}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;border-radius:8px;background:#fff;border:1px solid #e6eef8;display:flex;align-items:center;justify-content:center;padding:6px}
+    .logoimg{width:100%;height:100%;object-fit:contain}
+    nav{margin-left:auto}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{color:var(--muted);text-decoration:none;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;padding:36px 0}
+    .hero h1{font-size:32px;margin:0}
+    .cta{display:inline-block;margin-top:10px;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    main{padding:22px 0}
+    .grid{display:grid;gap:18px}
+    .two{grid-template-columns:1fr 360px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    h2{margin:0 0 12px 0}
+    p{line-height:1.5;color:#1f2937}
+
+    .timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+    .timeline li{padding:12px;border-left:3px solid var(--accent);background:linear-gradient(90deg,#ffffff,#fbfdff);border-radius:8px}
+
+    .events{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .event{padding:12px;border-radius:8px;border:1px solid #eef4fb;background:#fff}
+
+    /* Galería */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+    .gallery figure{margin:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(16,24,40,0.04);border:1px solid #eef4fb}
+    .gallery img{display:block;width:100%;height:160px;object-fit:cover;cursor:pointer}
+    .gallery figcaption{padding:8px 10px;font-size:12px;color:var(--muted)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+    .lightbox img{max-width:95vw;max-height:85vh;border-radius:12px}
+    .lightbox.active{display:flex}
+    .lightbox .close{position:absolute;top:18px;right:18px;background:#fff;border:none;border-radius:999px;padding:8px 12px;font-weight:700;cursor:pointer}
+
+    footer{padding:26px 0;color:var(--muted)}
+
+    /* Botón flotante WhatsApp */
+    .fab-whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;border-radius:999px;padding:12px 14px;display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:99999}
+    .fab-whatsapp svg{width:22px;height:22px;fill:#fff}
+
+    /* Iconos sociales en footer */
+    .social{display:flex;align-items:center;gap:14px}
+    .social a{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-weight:600}
+    .social svg{width:18px;height:18px;fill:currentColor}
+
+    /* responsive */
+    @media(min-width:880px){.hero{grid-template-columns:1fr 360px}.navlinks a{font-size:15px}.hero h1{font-size:40px}}
+    @media(max-width:880px){.two{grid-template-columns:1fr}.navlinks{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center;gap:18px">
+      <div class="brand">
+        <div class="logo"><img src="img/zirka_20251022_101951_0000.png.png" alt="Logo Ballet Zirka" class="logoimg"></div>
+        <div>
+          <div style="font-weight:800">Ballet Zirka</div>
+          <div style="font-size:13px;color:var(--muted)">Asociación Cultural Ucraniana "27 de Agosto" — Posadas</div>
+        </div>
+      </div>
+      <nav>
+        <div class="navlinks">
+          <a href="#historia">Historia</a>
+          <a href="#actividades">Actividades</a>
+          <a href="#eventos">Eventos</a>
+          <a href="#galeria">Galería</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Ballet Infanto-Juvenil Zirka</h1>
+        <p style="color:var(--muted);margin-top:8px">Promoviendo la identidad ucraniana a través de la danza, la cultura y la formación de nuevas generaciones desde 1989.</p>
+        <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank" rel="noopener">Vení a bailar con nosotros</a>
+
+        <div style="margin-top:20px" class="card">
+          <h3 style="margin:0 0 8px 0">Resumen</h3>
+          <p style="margin:0">Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años). Además de danza, se enseñan idioma, historia, bordado y artes visuales. Trabajo ad honorem y gran participación familiar en la organización.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h2>Datos clave</h2>
+          <ul style="margin:0;padding-left:16px;color:var(--muted)">
+            <li>Fundación: 2 de abril de 1989</li>
+            <li>Edad de alumnos: 4 a 16 años</li>
+            <li>Alumnos actuales: +50</li>
+            <li>Dirección: Asociación Cultural Ucraniana "27 de Agosto" — Posadas</li>
+            <li>Trabajo: 100% ad honorem</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h2>Contacto rápido</h2>
+          <p style="margin:0">Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
+          <p style="margin:6px 0 0"><strong>Coordinadores</strong></p>
+          <ul style="margin:6px 0 0;padding-left:16px;color:var(--muted)">
+            <li>Cristian: <a href="tel:+543754456239">+54 3754 456239</a></li>
+            <li>Nuria: <a href="tel:+543764607244">+54 376 4607244</a></li>
+          </ul>
+          <p style="margin:8px 0 0">Instagram: <a target="_blank" href="https://www.instagram.com/balletzirka.posadas/">@balletzirka.posadas</a></p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="historia" class="grid two" style="margin-top:18px">
+      <div class="card">
+        <h2>Historia del Ballet Zirka</h2>
+        <p>El Ballet Infanto-Juvenil Zirka nació el <strong>2 de abril de 1989</strong> como el semillero de la Asociación Cultural Ucraniana “27 de Agosto”, con el objetivo de promover la identidad ucraniana a través de la danza y la cultura. Su creación surgió a partir del entusiasmo de los niños, quienes, inspirados por el Ballet de mayores, también querían formar parte del mundo de la danza. Para fomentar su talento y preparar a futuras generaciones de bailarines, se conformó un grupo infantil dirigido a niños de 4 a 17 años.</p>
+
+        <p>En sus inicios, el grupo estuvo bajo la dirección de <strong>Jorge Brycki</strong> y <strong>Rosa Melnik</strong>, y fue conocido como el “Ballet Ucraniano Infantil de la Ciudad de Posadas”. En 1988, la dirección pasó a manos de <strong>Alicia Debeluk, Norma Brycki, Ramón Kruki</strong> y <strong>Alberto Brycki</strong>, quienes decidieron darle una identidad propia al grupo y lo renombraron como “Zirka”, que en ucraniano significa “estrella”, simbolizando el brillo, la esperanza y la libertad que transmiten sus jóvenes bailarines a través del arte.</p>
+
+        <p>A día de hoy, el Ballet Zirka sigue trabajando para perpetuar las tradiciones y valores ucranianos, ofreciendo a los niños un espacio donde la danza es más que movimiento: es historia, cultura, pasión y sobre todo contención.</p>
+
+        <h3 style="margin-top:18px">Formación y contenido</h3>
+        <p>Además de las danzas, se imparten disciplinas relacionadas con la cultura ucraniana: idioma, historia, geografía, bordado y pintura. Las clases son impartidas por integrantes del ballet adulto, quienes se capacitan mediante talleres nacionales e internacionales.</p>
+        <p>Todo el trabajo se realiza de forma <strong>ad honorem</strong>, con la colaboración de padres y familiares quienes organizan actividades para solventar los gastos.</p>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Logros y participación</h2>
+          <ul style="margin:0;padding-left:16px;color:var(--muted)">
+            <li>Participación en fiestas y eventos locales e internacionales</li>
+            <li>Trabajo sostenido por 36 años</li>
+            <li>Más de 50 alumnos activos</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Festivales y encuentros</h3>
+          <ul style="margin:0;padding-left:16px;color:var(--muted)">
+            <li>Fiesta Internacional de la Yerba Mate - Apóstoles</li>
+            <li>Fiesta Nacional e Internacional del Inmigrante - Oberá</li>
+            <li>Reto Hopak – Paraguay</li>
+            <li>Fiesta Nacional de la Navidad – Leandro N. Alem</li>
+            <li>Encuentro de ballets Ucranios – Oberá</li>
+            <li>Fiesta de las Raíces – Jardín América</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="eventos" style="margin-top:18px">
+      <div class="card">
+        <h2>Eventos donde participaron</h2>
+        <ul class="timeline">
+          <li>
+            <strong>Reto Hopak 2018 - Colonia Fram, Paraguay</strong>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">Mejor Destreza</div>
+          </li>
+          <li><strong>Parque del Conocimiento 2016 – Posadas</strong></li>
+          <li><strong>Encuentro de Ballets Ucranios 2022 – Oberá</strong></li>
+          <li><strong>Fiesta Internacional de la Yerba Mate 2023 – Apóstoles</strong></li>
+          <li><strong>Peña de Colectividades Profesorado de Geografía – Posadas</strong></li>
+          <li><strong>Fiesta Nacional de la Navidad 2024 – Leandro N. Alem</strong></li>
+          <li><strong>Festival 35 años Zirka – Posadas</strong></li>
+          <li><strong>Y gran participación en fiestas y eventos locales.</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="galeria" style="margin-top:18px">
+      <div class="card">
+        <h2>Galería de fotos</h2>
+        <p style="color:var(--muted);margin:6px 0 12px">Hacé clic para ampliar. Subí tus imágenes en <code>/img/</code> con los nombres <code>zirka-1.jpg</code> a <code>zirka-23.jpg</code>.</p>
+
+        <div class="gallery">
+          <!-- Galería de 23 imágenes numeradas -->
+          <figure><img src="img/zirka-1.jpg.jpeg" alt="Galería 1"><figcaption>Galería 1</figcaption></figure>
+          <figure><img src="img/zirka-2.jpg.jpeg" alt="Galería 2"><figcaption>Galería 2</figcaption></figure>
+          <figure><img src="img/zirka-3.jpg.jpeg" alt="Galería 3"><figcaption>Galería 3</figcaption></figure>
+          <figure><img src="img/zirka-4.jpg.jpeg" alt="Galería 4"><figcaption>Galería 4</figcaption></figure>
+          <figure><img src="img/zirka-5.jpg.jpeg" alt="Galería 5"><figcaption>Galería 5</figcaption></figure>
+          <figure><img src="img/zirka-6.jpg.jpeg" alt="Galería 6"><figcaption>Galería 6</figcaption></figure>
+          <figure><img src="img/zirka-7.jpg.jpeg" alt="Galería 7"><figcaption>Galería 7</figcaption></figure>
+          <figure><img src="img/zirka-8.jpg.jpeg" alt="Galería 8"><figcaption>Galería 8</figcaption></figure>
+          <figure><img src="img/zirka-9.jpg.jpeg" alt="Galería 9"><figcaption>Galería 9</figcaption></figure>
+          <figure><img src="img/zirka-10.jpg.jpeg" alt="Galería 10"><figcaption>Galería 10</figcaption></figure>
+          <figure><img src="img/zirka-11.jpg.jpeg" alt="Galería 11"><figcaption>Galería 11</figcaption></figure>
+          <figure><img src="img/zirka-12.jpg.jpeg" alt="Galería 12"><figcaption>Galería 12</figcaption></figure>
+          <figure><img src="img/zirka-13.jpg.jpeg" alt="Galería 13"><figcaption>Galería 13</figcaption></figure>
+          <figure><img src="img/zirka-14.jpg.jpeg" alt="Galería 14"><figcaption>Galería 14</figcaption></figure>
+          <figure><img src="img/zirka-15.jpg.jpeg" alt="Galería 15"><figcaption>Galería 15</figcaption></figure>
+          <figure><img src="img/zirka-16.jpg.jpeg" alt="Galería 16"><figcaption>Galería 16</figcaption></figure>
+          <figure><img src="img/zirka-17.jpg.jpeg" alt="Galería 17"><figcaption>Galería 17</figcaption></figure>
+          <figure><img src="img/zirka-18.jpg.jpeg" alt="Galería 18"><figcaption>Galería 18</figcaption></figure>
+          <figure><img src="img/zirka-19.jpg.jpeg" alt="Galería 19"><figcaption>Galería 19</figcaption></figure>
+          <figure><img src="img/zirka-20.jpg.jpeg" alt="Galería 20"><figcaption>Galería 20</figcaption></figure>
+          <figure><img src="img/zirka-21.jpg.jpeg" alt="Galería 21"><figcaption>Galería 21</figcaption></figure>
+          <figure><img src="img/zirka-22.jpg.jpeg" alt="Galería 22"><figcaption>Galería 22</figcaption></figure>
+          <figure><img src="img/zirka-23.jpg.jpeg" alt="Galería 23"><figcaption>Galería 23</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <button class="close" onclick="document.getElementById('lightbox').classList.remove('active')">✕</button>
+        <img id="lightboxImg" src="" alt="Foto ampliada">
+      </div>
+    </section>
+
+    <section id="actividades" style="margin-top:18px" class="grid">
+      <div class="card">
+        <h2>Actividades y talleres</h2>
+        <p>Además de las clases de danza tradicional ucraniana, Zirka ofrece talleres y formación en:</p>
+        <ul style="padding-left:16px;color:var(--muted)">
+          <li>Idioma ucraniano</li>
+          <li>Historia y geografía de Ucrania</li>
+          <li>Bordado tradicional</li>
+          <li>Pintura y artes visuales</li>
+        </ul>
+        <p style="margin-top:12px;color:var(--muted)">Los docentes son integrantes del ballet adulto y se actualizan mediante capacitaciones nacionales e internacionales.</p>
+      </div>
+
+      <div class="card">
+        <h2>Convocatoria</h2>
+        <p>Si querés que tu hijo/a forme parte del Ballet Zirka o colaborar como voluntario, escribinos a <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a> o completá el formulario.</p>
+      </div>
+    </section>
+
+    <section id="contacto" style="margin-top:18px">
+      <div class="card">
+        <h2>Contacto</h2>
+        <p>Asociación Cultural Ucraniana "27 de Agosto" — Posadas</p>
+        <p>Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
+        <p><strong>Coordinadores</strong><br>
+          Cristian: <a href="tel:+543754456239">+54 3754 456239</a> ·
+          Nuria: <a href="tel:+543764607244">+54 376 4607244</a></p>
+        <p>Instagram: <a target="_blank" href="https://www.instagram.com/balletzirka.posadas/">@balletzirka.posadas</a></p>
+
+        <form style="margin-top:12px" onsubmit="alert('Formulario simulado — implementar backend o usar Google Forms.');return false;">
+          <label style="display:block;margin-bottom:6px">Nombre</label>
+          <input style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8" required>
+          <label style="display:block;margin:10px 0 6px 0">Correo</label>
+          <input type="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8" required>
+          <label style="display:block;margin:10px 0 6px 0">Mensaje</label>
+          <textarea style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8" rows="4" required></textarea>
+          <div style="margin-top:12px">
+            <button style="padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-weight:700">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:22px" class="container">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+          <div>
+            <div style="font-weight:700">Ballet Zirka</div>
+            <div style="font-size:13px;color:var(--muted)">Asociación Cultural Ucraniana "27 de Agosto" — Posadas</div>
+          </div>
+          <div class="social">
+            <a target="_blank" href="https://www.instagram.com/balletzirka.posadas/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.75-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+              Instagram
+            </a>
+            <a href="mailto:balletucranianozirka@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 0 8 5 8-5H4zm16 12V8l-8 5-8-5v10h16z"/></svg>
+              Email
+            </a>
+            <a href="tel:+543754456239" aria-label="Teléfono">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17.5 17.5 0 0 1 2.5 6a1 1 0 0 1 1-1H7a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.7 2.2z"/></svg>
+              Llamar
+            </a>
+          </div>
+          <div style="font-size:13px;color:var(--muted)">© <span id="year"></span> Todos los derechos reservados</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a class="fab-whatsapp" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka!%20Quiero%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.53c-.26-.13-1.53-.75-1.77-.84-.24-.09-.42-.13-.6.13-.18.26-.69.84-.84 1.02-.16.18-.31.2-.57.07-.26-.13-1.11-.41-2.12-1.31-.78-.69-1.31-1.53-1.46-1.79-.15-.26-.02-.4.11-.53.11-.11.26-.29.4-.44.13-.15.18-.26.26-.44.09-.18.04-.33-.02-.46-.06-.13-.6-1.44-.82-1.98-.22-.53-.44-.45-.6-.46l-.51-.01c-.18 0-.46.07-
+.7.33-.24.26-.92.9-.92 2.2s.94 2.55 1.07 2.73c.13.18 1.85 2.83 4.49 3.97.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.08 1.53-.62 1.75-1.22.22-.6.22-1.11.15-1.22-.06-.11-.24-.18-.5-.31zM16.02 3C9.94 3 5 7.94 5 14.02c0 2.42.79 4.66 2.13 6.47L6 28l7.66-1.99c1.7.94 3.66 1.48 5.73 1.48 6.08 0 11.02-4.94 11.02-11.02S22.1 3 16.02 3z"/></svg>
+    WhatsApp
+  </a>
+
+  <script>
+    document.getElementById('year').innerText=new Date().getFullYear();
+    // Lightbox
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lightboxImg');
+    if(lb&&lbImg){
+      document.querySelectorAll('.gallery img').forEach(img=>{
+        img.addEventListener('click',()=>{lbImg.src=img.src;lb.classList.add('active')})
+      });
+    }
+  </script>
+</body>
+</html>
