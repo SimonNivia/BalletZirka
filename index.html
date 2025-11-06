@@ -31,9 +31,18 @@
     .card{background:linear-gradient(180deg,rgba(54,45,159,.85) 0%, rgba(57,47,2,.95) 100%);padding:20px;border-radius:16px;margin-top:20px;border:1px solid rgba(255,255,255,.35);box-shadow:0 10px 30px rgba(0,0,0,.5)}
     .grid{display:grid;gap:20px}
     .two{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-    .gallery img{width:100%;height:150px;object-fit:cover;border-radius:10px;transition:.3s;animation:fadeInUp .6s ease forwards;cursor:pointer}
-    .gallery img:hover{transform:scale(1.05)}
+    /* --- Carrusel --- */
+    .carousel{position:relative}
+    .carousel-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+    .carousel-track::-webkit-scrollbar{height:10px}
+    .carousel-track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:10px}
+    .carousel-item{flex:0 0 auto;width:220px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative}
+    .carousel-item img{width:100%;height:160px;object-fit:cover;display:block;cursor:pointer;transition:.25s;animation:fadeInUp .6s ease both}
+    .carousel-item img:hover{transform:scale(1.03)}
+    .cbtn{position:absolute;top:50%;transform:translateY(-50%);border:none;border-radius:50%;width:42px;height:42px;cursor:pointer;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:#fff;display:grid;place-items:center}
+    .cprev{left:-10px}
+    .cnext{right:-10px}
+    @media(max-width:640px){.carousel-item{width:70vw}.cprev{left:0}.cnext{right:0}}
     /* Lightbox */
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999}
     .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 0 30px rgba(255,255,255,.3);animation:fadeIn .4s ease both}
@@ -42,6 +51,11 @@
     .btn{padding:12px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:700;background:linear-gradient(135deg,#4a3be0 0%, #21c36f 60%, #023903 100%);color:#fff;box-shadow:0 10px 22px rgba(0,0,0,.3)}
     .field{width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3);margin-bottom:10px}
     footer{text-align:center;padding:30px 0;color:#ccc}
+    /* WhatsApp FAB */
+    .fab-whatsapp{position:fixed;right:18px;bottom:18px;z-index:10000;display:flex;align-items:center;gap:10px;text-decoration:none}
+    .fab-whatsapp .bubble{background:linear-gradient(135deg,#25d366,#128c7e);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 26px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2)}
+    .fab-whatsapp .label{background:rgba(0,0,0,.35);backdrop-filter:blur(4px);padding:8px 12px;border-radius:10px;color:#fff;font-weight:700;border:1px solid rgba(255,255,255,.2)}
+    .fab-whatsapp svg{width:28px;height:28px;fill:#fff}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
     @media(max-width:768px){
@@ -140,43 +154,51 @@
           <li><strong>Festival 35 años Zirka</strong> — Posadas.</li>
           <li>Y una amplia participación en fiestas y eventos locales.</li>
         </ul>
-        <h3>Otras participaciones</h3>
-        <ul>
-          <li>Fiesta Nacional e Internacional del Inmigrante — Oberá.</li>
-          <li>Fiesta de las Raíces — Jardín América.</li>
-          <li>Fiesta Internacional de la Yerba Mate — Apóstoles.</li>
-        </ul>
       </div>
     </section>
 
+    <!-- Galería carrusel -->
     <section id="galeria">
       <div class="card">
         <h2>Galería de fotos</h2>
-        <p>Hacé clic sobre una imagen para ampliarla.</p>
-        <div class="gallery" id="gal">
-          <img src="img/zirka-1.jpg.jpeg" alt="Galería 1">
-          <img src="img/zirka-2.jpg.jpeg" alt="Galería 2">
-          <img src="img/zirka-3.jpg.jpeg" alt="Galería 3">
-          <img src="img/zirka-4.jpg.jpeg" alt="Galería 4">
-          <img src="img/zirka-5.jpg.jpeg" alt="Galería 5">
-          <img src="img/zirka-6.jpg.jpeg" alt="Galería 6">
-          <img src="img/zirka-7.jpg.jpeg" alt="Galería 7">
-          <img src="img/zirka-8.jpg.jpeg" alt="Galería 8">
-          <img src="img/zirka-9.jpg.jpeg" alt="Galería 9">
-          <img src="img/zirka-10.jpg.jpeg" alt="Galería 10">
-          <img src="img/zirka-11.jpg.jpeg" alt="Galería 11">
-          <img src="img/zirka-12.jpg.jpeg" alt="Galería 12">
-          <img src="img/zirka-13.jpg.jpeg" alt="Galería 13">
-          <img src="img/zirka-14.jpg.jpeg" alt="Galería 14">
-          <img src="img/zirka-15.jpg.jpeg" alt="Galería 15">
-          <img src="img/zirka-16.jpg.jpeg" alt="Galería 16">
-          <img src="img/zirka-17.jpg.jpeg" alt="Galería 17">
-          <img src="img/zirka-18.jpg.jpeg" alt="Galería 18">
-          <img src="img/zirka-19.jpg.jpeg" alt="Galería 19">
-          <img src="img/zirka-20.jpg.jpeg" alt="Galería 20">
-          <img src="img/zirka-21.jpg.jpeg" alt="Galería 21">
-          <img src="img/zirka-22.jpg.jpeg" alt="Galería 22">
-          <img src="img/zirka-23.jpg.jpeg" alt="Galería 23">
+        <p>Deslizá o usá las flechas. Hacé clic para ampliar.</p>
+
+        <div class="carousel">
+          <button class="cbtn cprev" aria-label="Anterior" title="Anterior">‹</button>
+          <div class="carousel-track" id="track">
+            <!-- 1..30 -->
+            <div class="carousel-item"><img src="img/zirka-1.jpg.jpeg"  alt="Galería 1"></div>
+            <div class="carousel-item"><img src="img/zirka-2.jpg.jpeg"  alt="Galería 2"></div>
+            <div class="carousel-item"><img src="img/zirka-3.jpg.jpeg"  alt="Galería 3"></div>
+            <div class="carousel-item"><img src="img/zirka-4.jpg.jpeg"  alt="Galería 4"></div>
+            <div class="carousel-item"><img src="img/zirka-5.jpg.jpeg"  alt="Galería 5"></div>
+            <div class="carousel-item"><img src="img/zirka-6.jpg.jpeg"  alt="Galería 6"></div>
+            <div class="carousel-item"><img src="img/zirka-7.jpg.jpeg"  alt="Galería 7"></div>
+            <div class="carousel-item"><img src="img/zirka-8.jpg.jpeg"  alt="Galería 8"></div>
+            <div class="carousel-item"><img src="img/zirka-9.jpg.jpeg"  alt="Galería 9"></div>
+            <div class="carousel-item"><img src="img/zirka-10.jpg.jpeg" alt="Galería 10"></div>
+            <div class="carousel-item"><img src="img/zirka-11.jpg.jpeg" alt="Galería 11"></div>
+            <div class="carousel-item"><img src="img/zirka-12.jpg.jpeg" alt="Galería 12"></div>
+            <div class="carousel-item"><img src="img/zirka-13.jpg.jpeg" alt="Galería 13"></div>
+            <div class="carousel-item"><img src="img/zirka-14.jpg.jpeg" alt="Galería 14"></div>
+            <div class="carousel-item"><img src="img/zirka-15.jpg.jpeg" alt="Galería 15"></div>
+            <div class="carousel-item"><img src="img/zirka-16.jpg.jpeg" alt="Galería 16"></div>
+            <div class="carousel-item"><img src="img/zirka-17.jpg.jpeg" alt="Galería 17"></div>
+            <div class="carousel-item"><img src="img/zirka-18.jpg.jpeg" alt="Galería 18"></div>
+            <div class="carousel-item"><img src="img/zirka-19.jpg.jpeg" alt="Galería 19"></div>
+            <div class="carousel-item"><img src="img/zirka-20.jpg.jpeg" alt="Galería 20"></div>
+            <div class="carousel-item"><img src="img/zirka-21.jpg.jpeg" alt="Galería 21"></div>
+            <div class="carousel-item"><img src="img/zirka-22.jpg.jpeg" alt="Galería 22"></div>
+            <div class="carousel-item"><img src="img/zirka-23.jpg.jpeg" alt="Galería 23"></div>
+            <div class="carousel-item"><img src="img/zirka-24.jpg.jpeg" alt="Galería 24"></div>
+            <div class="carousel-item"><img src="img/zirka-25.jpg.jpeg" alt="Galería 25"></div>
+            <div class="carousel-item"><img src="img/zirka-26.jpg.jpeg" alt="Galería 26"></div>
+            <div class="carousel-item"><img src="img/zirka-27.jpg.jpeg" alt="Galería 27"></div>
+            <div class="carousel-item"><img src="img/zirka-28.jpg.jpeg" alt="Galería 28"></div>
+            <div class="carousel-item"><img src="img/zirka-29.jpg.jpeg" alt="Galería 29"></div>
+            <div class="carousel-item"><img src="img/zirka-30.jpg.jpeg" alt="Galería 30"></div>
+          </div>
+          <button class="cbtn cnext" aria-label="Siguiente" title="Siguiente">›</button>
         </div>
       </div>
     </section>
@@ -215,6 +237,15 @@
     <img src="" alt="Imagen ampliada">
   </div>
 
+  <!-- Botón flotante WhatsApp (Cristian) -->
+  <a class="fab-whatsapp" href="https://wa.me/543754456239?text=Hola%20Cristian%2C%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20el%20Ballet%20Zirka." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con Cristian">
+    <span class="label">WhatsApp Cristian</span>
+    <span class="bubble" aria-hidden="true">
+      <!-- ícono WhatsApp -->
+      <svg viewBox="0 0 32 32"><path d="M19.11 17.57c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.58.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.11-.41-2.12-1.31-.78-.69-1.31-1.54-1.47-1.8-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.4-.8-1.92-.21-.5-.42-.43-.58-.44h-.5c-.17 0-.45.06-.69.32-.24.26-.9.87-.9 2.12s.92 2.46 1.06 2.63c.13.17 1.81 2.77 4.39 3.89.61.26 1.09.41 1.46.53.61.19 1.17.16 1.61.1.49-.07 1.54-.62 1.76-1.22.22-.6.22-1.12.15-1.22-.06-.1-.24-.17-.5-.3zM26.66 5.34C23.86 2.54 20.1 1 16.09 1 8.16 1 1.86 7.31 1.86 15.24c0 2.47.64 4.87 1.87 6.98L1 31l8-2.08c2.06 1.12 4.39 1.71 6.77 1.71 7.93 0 14.24-6.31 14.24-14.24 0-3.99-1.54-7.77-4.35-10.57zM16.77 28.1c-2.19 0-4.33-.59-6.19-1.71l-.44-.26-4.76 1.24 1.27-4.65-.29-.48c-1.19-1.94-1.82-4.16-1.82-6.48 0-6.86 5.58-12.44 12.44-12.44 3.33 0 6.47 1.3 8.83 3.65 2.35 2.35 3.65 5.49 3.65 8.83 0 6.86-5.58 12.44-12.44 12.44z"/></svg>
+    </span>
+  </a>
+
   <footer>
     © <span id="year"></span> Ballet Zirka — Asociación Cultural Ucraniana "27 de Agosto" — Posadas
   </footer>
@@ -235,19 +266,16 @@
       btn.setAttribute('aria-expanded','false');
     }));
 
-    // Lightbox funcional
+    // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
-    const galleryImgs = document.querySelectorAll('.gallery img');
-
+    const galleryImgs = document.querySelectorAll('.carousel-item img');
     galleryImgs.forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
         lightbox.classList.add('active');
       });
     });
-
-    // Cerrar al hacer click fuera de la imagen o presionar ESC
     lightbox.addEventListener('click', (e) => {
       if (e.target !== lightboxImg) {
         lightbox.classList.remove('active');
@@ -260,7 +288,34 @@
         lightboxImg.src = '';
       }
     });
+
+    // Carrusel: flechas + drag + accesibilidad
+    const track = document.getElementById('track');
+    const prev = document.querySelector('.cprev');
+    const next = document.querySelector('.cnext');
+
+    const itemWidth = () => track.querySelector('.carousel-item')?.getBoundingClientRect().width || 220;
+    const scrollStep = () => itemWidth() + 12;
+
+    prev.addEventListener('click', () => track.scrollBy({left: -scrollStep(), behavior: 'smooth'}));
+    next.addEventListener('click', () => track.scrollBy({left:  scrollStep(), behavior: 'smooth'}));
+
+    // Drag / Swipe
+    let isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', (e)=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
+    track.addEventListener('mouseleave', ()=>isDown=false);
+    track.addEventListener('mouseup',   ()=>isDown=false);
+    track.addEventListener('mousemove', (e)=>{
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX-track.offsetLeft;
+      const walk = (x-startX)*1.2;
+      track.scrollLeft = scrollLeft - walk;
+    });
+    // Touch
+    let tsX=0, tsSL=0;
+    track.addEventListener('touchstart',(e)=>{tsX=e.touches[0].pageX;tsSL=track.scrollLeft},{passive:true});
+    track.addEventListener('touchmove',(e)=>{const dx=e.touches[0].pageX-tsX;track.scrollLeft=tsSL-dx},{passive:true});
   </script>
 </body>
 </html>
-
