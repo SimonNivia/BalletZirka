@@ -7,75 +7,147 @@
   <meta name="description" content="Ballet Infanto-Juvenil Zirka — tradición, cultura y danza. Información, eventos y contacto.">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <style>
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(160deg,#362d9f 0%, #392f02 100%); color:#fff}
+    :root{
+      --bg1:#362d9f; --bg2:#392f02;
+      --card1:#2e2691; --card2:#3a3008;
+      --txt:#ffffff; --txtSoft:#e6e6e6; --link:#8be9fd;
+      --accent1:#4a3be0; --accent2:#21c36f; --accent3:#023903;
+      --cardBorder: rgba(255,255,255,.35);
+    }
     html{scroll-behavior:smooth}
-    header{background:rgba(0,0,0,.2);padding:16px 20px;position:sticky;top:0;z-index:1000;backdrop-filter:blur(6px)}
+    body{
+      margin:0; color:var(--txt);
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 100%);
+    }
+    a{color:var(--link); text-decoration:none}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1000;
+      padding:16px 20px;
+      background:rgba(0,0,0,.22);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
     .container{max-width:1200px;margin:0 auto;padding:0 18px}
     .brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .logo{width:120px;height:120px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;padding:8px;animation:fadeIn .8s ease both}
+    .logo{
+      width:120px;height:120px;border-radius:12px;background:#fff;
+      display:flex;align-items:center;justify-content:center;padding:10px;
+      animation:fadeIn .8s ease both;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
     .logoimg{width:100%;height:100%;object-fit:contain}
-    .navlinks{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .brand-title{font-weight:800}
+    .brand-sub{font-size:13px;color:var(--txtSoft)}
+
+    .navwrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .navlinks{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .navlinks a{color:#fff;font-weight:700;padding:8px 12px;border-radius:8px;transition:.25s}
+    .navlinks a:hover{background:rgba(255,255,255,.15)}
     .hamburger{display:none;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);border-radius:10px;padding:8px 10px;color:#fff;cursor:pointer}
     .hamburger .bar{display:block;width:22px;height:2px;background:#fff;margin:5px 0}
+
     @media(max-width:768px){
+      .logo{width:90px;height:90px}
       .hamburger{display:block}
       .navlinks{display:none;width:100%;flex-direction:column;align-items:flex-start;background:rgba(0,0,0,.35);border-radius:12px;padding:10px;margin-top:10px}
       .navlinks.show{display:flex}
     }
-    .navlinks a{color:#fff;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:8px;transition:.3s}
-    .navlinks a:hover{background:rgba(255,255,255,.15)}
-    h1,h2,h3{color:#fff;margin-top:0}
-    a{color:#8be9fd;text-decoration:none}
-    .cta{display:inline-block;margin-top:10px;color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:800;background:linear-gradient(135deg,#4a3be0 0%, #21c36f 60%, #023903 100%);box-shadow:0 12px 26px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.25)}
-    .cta:hover{filter:brightness(1.15)}
-    .card{background:linear-gradient(180deg,rgba(54,45,159,.85) 0%, rgba(57,47,2,.95) 100%);padding:20px;border-radius:16px;margin-top:20px;border:1px solid rgba(255,255,255,.35);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+    /* Hero + CTA */
+    .hero h1{margin:18px 0 8px}
+    .cta{
+      display:inline-block;margin-top:12px;color:#fff;padding:12px 20px;border-radius:12px;
+      text-decoration:none;font-weight:900;letter-spacing:.2px;
+      background:linear-gradient(135deg,var(--accent1) 0%, #2f9f5d 55%, var(--accent3) 100%);
+      box-shadow:0 12px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.25);
+      border:1px solid rgba(255,255,255,.25); transition:.2s;
+    }
+    .cta:hover{filter:brightness(1.15); transform:translateY(-1px)}
+
+    /* Cards */
+    .card{
+      background:linear-gradient(180deg, rgba(46,38,145,.92) 0%, rgba(58,48,8,.95) 100%);
+      padding:20px;border-radius:16px;margin-top:20px;
+      border:1px solid var(--cardBorder);
+      box-shadow:0 14px 38px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.05);
+    }
     .grid{display:grid;gap:20px}
     .two{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))}
-    /* --- Carrusel --- */
-    .carousel{position:relative}
-    .carousel-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
-    .carousel-track::-webkit-scrollbar{height:10px}
-    .carousel-track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:10px}
-    .carousel-item{flex:0 0 auto;width:220px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative}
-    .carousel-item img{width:100%;height:160px;object-fit:cover;display:block;cursor:pointer;transition:.25s;animation:fadeInUp .6s ease both}
-    .carousel-item img:hover{transform:scale(1.03)}
-    .cbtn{position:absolute;top:50%;transform:translateY(-50%);border:none;border-radius:50%;width:42px;height:42px;cursor:pointer;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:#fff;display:grid;place-items:center}
-    .cprev{left:-10px}
-    .cnext{right:-10px}
-    @media(max-width:640px){.carousel-item{width:70vw}.cprev{left:0}.cnext{right:0}}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+    .gallery img{
+      width:100%;height:150px;object-fit:cover;border-radius:12px;
+      transition:.25s; animation:fadeInUp .6s ease forwards; cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+    .gallery img:hover{transform:scale(1.04)}
     /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999}
-    .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 0 30px rgba(255,255,255,.3);animation:fadeIn .4s ease both}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9999}
     .lightbox.active{display:flex}
-    /* Form */
-    .btn{padding:12px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:700;background:linear-gradient(135deg,#4a3be0 0%, #21c36f 60%, #023903 100%);color:#fff;box-shadow:0 10px 22px rgba(0,0,0,.3)}
+    .lightbox img{max-width:95vw;max-height:85vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+    .lightbox .close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;font-weight:900;cursor:pointer}
+
+    /* Forms */
+    .btn{
+      padding:12px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:800;
+      background:linear-gradient(135deg,var(--accent1) 0%, #2f9f5d 55%, var(--accent3) 100%);
+      color:#fff; box-shadow:0 10px 22px rgba(0,0,0,.3);
+    }
     .field{width:100%;padding:12px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3);margin-bottom:10px}
-    footer{text-align:center;padding:30px 0;color:#ccc}
+
     /* WhatsApp FAB */
-    .fab-whatsapp{position:fixed;right:18px;bottom:18px;z-index:10000;display:flex;align-items:center;gap:10px;text-decoration:none}
-    .fab-whatsapp .bubble{background:linear-gradient(135deg,#25d366,#128c7e);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 26px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.2)}
-    .fab-whatsapp .label{background:rgba(0,0,0,.35);backdrop-filter:blur(4px);padding:8px 12px;border-radius:10px;color:#fff;font-weight:700;border:1px solid rgba(255,255,255,.2)}
-    .fab-whatsapp svg{width:28px;height:28px;fill:#fff}
+    .wa-fab{
+      position:fixed; right:22px; bottom:22px; z-index:1200;
+      display:flex; align-items:center; gap:10px;
+      background:#25D366; color:#0b371a; font-weight:900;
+      border-radius:999px; padding:12px 16px; box-shadow:0 14px 30px rgba(0,0,0,.35);
+    }
+    .wa-fab img{width:22px;height:22px}
+    .wa-fab:hover{filter:brightness(1.05)}
+
+    footer{text-align:center;padding:34px 0;color:#d7d7d7}
+
     @keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @media(max-width:768px){
-      .logo{width:90px;height:90px}
-      .navlinks{justify-content:center;margin-top:10px}
-      header{padding:12px}
+
+    /* Promo modal (aviso amarillo) */
+    .promo-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:11000}
+    .promo-overlay.show{display:flex}
+    .promo-card{
+      width:min(720px,92vw);
+      border-radius:16px;
+      border:2px solid #b8860b;
+      background:linear-gradient(180deg,#ffe769,#ffd447);
+      color:#111;
+      box-shadow:0 18px 40px rgba(0,0,0,.45);
+      padding:22px 20px;
+      font-weight:800;
     }
+    .promo-card h3{margin:0 0 8px 0;color:#1b1b1b;font-size:1.35rem}
+    .promo-card p{margin:6px 0;font-weight:700;line-height:1.35}
+    .promo-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+    .promo-btn{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
+    .promo-close{background:#111;color:#fff}
+    .promo-see{background:#1f7a1f;color:#fff}
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <div class="container navwrap">
       <div class="brand">
         <div class="logo"><img src="img/zirka_20251022_101951_0000.png.png" alt="Logo Ballet Zirka" class="logoimg"></div>
         <div>
-          <div style="font-weight:800">Ballet Zirka</div>
-          <div style="font-size:13px;color:#ddd">Asociación Cultural Ucraniana "27 de Agosto" — Posadas</div>
+          <div class="brand-title">Ballet Zirka</div>
+          <div class="brand-sub">Asociación Cultural Ucraniana "27 de Agosto" — Posadas</div>
         </div>
       </div>
-      <button class="hamburger" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <button class="hamburger" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
       <nav id="nav" class="navlinks">
         <a href="#historia">Historia</a>
         <a href="#actividades">Actividades</a>
@@ -91,9 +163,13 @@
       <h1>Ballet Infanto-Juvenil Zirka</h1>
       <p>Promoviendo la identidad ucraniana a través de la danza, la cultura y la formación de nuevas generaciones desde 1989.</p>
       <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank" rel="noopener">Vení a bailar con nosotros</a>
+
       <div class="card">
         <h3>Resumen</h3>
-        <p>Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años). Además de danza, se enseñan idioma, historia, bordado y artes visuales. Trabajo ad honorem y gran participación familiar en la organización.</p>
+        <p>
+          Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años).
+          Además de danza, se enseñan idioma, historia, bordado y artes visuales. Trabajo ad honorem y gran participación familiar en la organización.
+        </p>
       </div>
     </section>
 
@@ -126,7 +202,7 @@
         <h2>Historia del Ballet Zirka</h2>
         <p>El Ballet Infanto-Juvenil Zirka nació el 2 de abril de 1989 como el semillero de la Asociación Cultural Ucraniana “27 de Agosto”, con el objetivo de promover la identidad ucraniana a través de la danza y la cultura. Su creación surgió a partir del entusiasmo de los niños, quienes, inspirados por el Ballet de mayores, también querían formar parte del mundo de la danza.</p>
         <p>Para fomentar su talento y preparar a futuras generaciones de bailarines, se conformó un grupo infantil dirigido a niños de 4 a 17 años. En sus inicios, el grupo estuvo bajo la dirección de Jorge Brycki y Rosa Melnik, y fue conocido como el “Ballet Ucraniano Infantil de la Ciudad de Posadas”.</p>
-        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki, quienes decidieron darle una identidad propia al grupo y lo renombraron como “Zirka”, que en ucraniano significa “estrella”, simbolizando el brillo, la esperanza y la libertad que transmiten sus jóvenes bailarines a través del arte.</p>
+        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki, quienes decidieron darle una identidad propia al grupo y lo renombraron como “Zirka”, que en ucraniano significa “estrella”.</p>
         <p>A día de hoy, el Ballet Zirka sigue trabajando para perpetuar las tradiciones y valores ucranianos, ofreciendo a los niños un espacio donde la danza es más que movimiento: es historia, cultura, pasión y, sobre todo, contención.</p>
       </div>
       <div class="card">
@@ -154,51 +230,51 @@
           <li><strong>Festival 35 años Zirka</strong> — Posadas.</li>
           <li>Y una amplia participación en fiestas y eventos locales.</li>
         </ul>
+        <h3>Otras participaciones</h3>
+        <ul>
+          <li>Fiesta Nacional e Internacional del Inmigrante — Oberá.</li>
+          <li>Fiesta de las Raíces — Jardín América.</li>
+          <li>Fiesta Internacional de la Yerba Mate — Apóstoles.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Galería carrusel -->
     <section id="galeria">
       <div class="card">
         <h2>Galería de fotos</h2>
-        <p>Deslizá o usá las flechas. Hacé clic para ampliar.</p>
-
-        <div class="carousel">
-          <button class="cbtn cprev" aria-label="Anterior" title="Anterior">‹</button>
-          <div class="carousel-track" id="track">
-            <!-- 1..30 -->
-            <div class="carousel-item"><img src="img/zirka-1.jpg.jpeg"  alt="Galería 1"></div>
-            <div class="carousel-item"><img src="img/zirka-2.jpg.jpeg"  alt="Galería 2"></div>
-            <div class="carousel-item"><img src="img/zirka-3.jpg.jpeg"  alt="Galería 3"></div>
-            <div class="carousel-item"><img src="img/zirka-4.jpg.jpeg"  alt="Galería 4"></div>
-            <div class="carousel-item"><img src="img/zirka-5.jpg.jpeg"  alt="Galería 5"></div>
-            <div class="carousel-item"><img src="img/zirka-6.jpg.jpeg"  alt="Galería 6"></div>
-            <div class="carousel-item"><img src="img/zirka-7.jpg.jpeg"  alt="Galería 7"></div>
-            <div class="carousel-item"><img src="img/zirka-8.jpg.jpeg"  alt="Galería 8"></div>
-            <div class="carousel-item"><img src="img/zirka-9.jpg.jpeg"  alt="Galería 9"></div>
-            <div class="carousel-item"><img src="img/zirka-10.jpg.jpeg" alt="Galería 10"></div>
-            <div class="carousel-item"><img src="img/zirka-11.jpg.jpeg" alt="Galería 11"></div>
-            <div class="carousel-item"><img src="img/zirka-12.jpg.jpeg" alt="Galería 12"></div>
-            <div class="carousel-item"><img src="img/zirka-13.jpg.jpeg" alt="Galería 13"></div>
-            <div class="carousel-item"><img src="img/zirka-14.jpg.jpeg" alt="Galería 14"></div>
-            <div class="carousel-item"><img src="img/zirka-15.jpg.jpeg" alt="Galería 15"></div>
-            <div class="carousel-item"><img src="img/zirka-16.jpg.jpeg" alt="Galería 16"></div>
-            <div class="carousel-item"><img src="img/zirka-17.jpg.jpeg" alt="Galería 17"></div>
-            <div class="carousel-item"><img src="img/zirka-18.jpg.jpeg" alt="Galería 18"></div>
-            <div class="carousel-item"><img src="img/zirka-19.jpg.jpeg" alt="Galería 19"></div>
-            <div class="carousel-item"><img src="img/zirka-20.jpg.jpeg" alt="Galería 20"></div>
-            <div class="carousel-item"><img src="img/zirka-21.jpg.jpeg" alt="Galería 21"></div>
-            <div class="carousel-item"><img src="img/zirka-22.jpg.jpeg" alt="Galería 22"></div>
-            <div class="carousel-item"><img src="img/zirka-23.jpg.jpeg" alt="Galería 23"></div>
-            <div class="carousel-item"><img src="img/zirka-24.jpg.jpeg" alt="Galería 24"></div>
-            <div class="carousel-item"><img src="img/zirka-25.jpg.jpeg" alt="Galería 25"></div>
-            <div class="carousel-item"><img src="img/zirka-26.jpg.jpeg" alt="Galería 26"></div>
-            <div class="carousel-item"><img src="img/zirka-27.jpg.jpeg" alt="Galería 27"></div>
-            <div class="carousel-item"><img src="img/zirka-28.jpg.jpeg" alt="Galería 28"></div>
-            <div class="carousel-item"><img src="img/zirka-29.jpg.jpeg" alt="Galería 29"></div>
-            <div class="carousel-item"><img src="img/zirka-30.jpg.jpeg" alt="Galería 30"></div>
-          </div>
-          <button class="cbtn cnext" aria-label="Siguiente" title="Siguiente">›</button>
+        <p>Hacé clic sobre una imagen para ampliarla.</p>
+        <div class="gallery" id="gal">
+          <!-- 30 imágenes (asegurate de subirlas en /img/ con estos nombres) -->
+          <img src="img/zirka-1.jpg.jpeg"  alt="Galería 1">
+          <img src="img/zirka-2.jpg.jpeg"  alt="Galería 2">
+          <img src="img/zirka-3.jpg.jpeg"  alt="Galería 3">
+          <img src="img/zirka-4.jpg.jpeg"  alt="Galería 4">
+          <img src="img/zirka-5.jpg.jpeg"  alt="Galería 5">
+          <img src="img/zirka-6.jpg.jpeg"  alt="Galería 6">
+          <img src="img/zirka-7.jpg.jpeg"  alt="Galería 7">
+          <img src="img/zirka-8.jpg.jpeg"  alt="Galería 8">
+          <img src="img/zirka-9.jpg.jpeg"  alt="Galería 9">
+          <img src="img/zirka-10.jpg.jpeg" alt="Galería 10">
+          <img src="img/zirka-11.jpg.jpeg" alt="Galería 11">
+          <img src="img/zirka-12.jpg.jpeg" alt="Galería 12">
+          <img src="img/zirka-13.jpg.jpeg" alt="Galería 13">
+          <img src="img/zirka-14.jpg.jpeg" alt="Galería 14">
+          <img src="img/zirka-15.jpg.jpeg" alt="Galería 15">
+          <img src="img/zirka-16.jpg.jpeg" alt="Galería 16">
+          <img src="img/zirka-17.jpg.jpeg" alt="Galería 17">
+          <img src="img/zirka-18.jpg.jpeg" alt="Galería 18">
+          <img src="img/zirka-19.jpg.jpeg" alt="Galería 19">
+          <img src="img/zirka-20.jpg.jpeg" alt="Galería 20">
+          <img src="img/zirka-21.jpg.jpeg" alt="Galería 21">
+          <img src="img/zirka-22.jpg.jpeg" alt="Galería 22">
+          <img src="img/zirka-23.jpg.jpeg" alt="Galería 23">
+          <img src="img/zirka-24.jpg.jpeg" alt="Galería 24">
+          <img src="img/zirka-25.jpg.jpeg" alt="Galería 25">
+          <img src="img/zirka-26.jpg.jpeg" alt="Galería 26">
+          <img src="img/zirka-27.jpg.jpeg" alt="Galería 27">
+          <img src="img/zirka-28.jpg.jpeg" alt="Galería 28">
+          <img src="img/zirka-29.jpg.jpeg" alt="Galería 29">
+          <img src="img/zirka-30.jpg.jpeg" alt="Galería 30">
         </div>
       </div>
     </section>
@@ -232,90 +308,84 @@
     </section>
   </main>
 
-  <!-- Lightbox (ampliación de imágenes) -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Imagen ampliada">
-  </div>
-
-  <!-- Botón flotante WhatsApp (Cristian) -->
-  <a class="fab-whatsapp" href="https://wa.me/543754456239?text=Hola%20Cristian%2C%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20el%20Ballet%20Zirka." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con Cristian">
-    <span class="label">WhatsApp Cristian</span>
-    <span class="bubble" aria-hidden="true">
-      <!-- ícono WhatsApp -->
-      <svg viewBox="0 0 32 32"><path d="M19.11 17.57c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.58.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.11-.41-2.12-1.31-.78-.69-1.31-1.54-1.47-1.8-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.4-.8-1.92-.21-.5-.42-.43-.58-.44h-.5c-.17 0-.45.06-.69.32-.24.26-.9.87-.9 2.12s.92 2.46 1.06 2.63c.13.17 1.81 2.77 4.39 3.89.61.26 1.09.41 1.46.53.61.19 1.17.16 1.61.1.49-.07 1.54-.62 1.76-1.22.22-.6.22-1.12.15-1.22-.06-.1-.24-.17-.5-.3zM26.66 5.34C23.86 2.54 20.1 1 16.09 1 8.16 1 1.86 7.31 1.86 15.24c0 2.47.64 4.87 1.87 6.98L1 31l8-2.08c2.06 1.12 4.39 1.71 6.77 1.71 7.93 0 14.24-6.31 14.24-14.24 0-3.99-1.54-7.77-4.35-10.57zM16.77 28.1c-2.19 0-4.33-.59-6.19-1.71l-.44-.26-4.76 1.24 1.27-4.65-.29-.48c-1.19-1.94-1.82-4.16-1.82-6.48 0-6.86 5.58-12.44 12.44-12.44 3.33 0 6.47 1.3 8.83 3.65 2.35 2.35 3.65 5.49 3.65 8.83 0 6.86-5.58 12.44-12.44 12.44z"/></svg>
-    </span>
-  </a>
-
   <footer>
     © <span id="year"></span> Ballet Zirka — Asociación Cultural Ucraniana "27 de Agosto" — Posadas
   </footer>
 
+  <!-- FAB WhatsApp Cristian -->
+  <a class="wa-fab" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a Cristian">
+    <img src="https://static.whatsapp.net/rsrc.php/v3/yP/r/rYZqPCBaG70.png" alt="" aria-hidden="true"> WhatsApp
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+    <span class="close" id="lbClose" aria-label="Cerrar">×</span>
+    <img id="lbImg" alt="Imagen ampliada">
+  </div>
+
+  <!-- Aviso especial 08/11/2025 -->
+  <div class="promo-overlay" id="promo1108" role="dialog" aria-modal="true" aria-labelledby="promo1108-title">
+    <div class="promo-card">
+      <h3 id="promo1108-title">¡HOY! 🟡</h3>
+      <p>VENÍ A VERNOS A BAILAR <strong>HOY A LAS 19:30&nbsp;hs</strong></p>
+      <p>EN EL ESCENARIO CENTRAL DE LA <strong>"FIESTA NACIONAL DE COLECTIVIDADES"</strong> EN ROSARIO.</p>
+      <p><strong>Y LAS PRESENTACIONES EN:</strong><br>CASA UCRANIANA · CASA CROATA</p>
+      <div class="promo-actions">
+        <button class="promo-btn promo-see" onclick="document.getElementById('eventos').scrollIntoView({behavior:'smooth'});document.getElementById('promo1108').classList.remove('show');localStorage.setItem('promo1108dismissed','1');">Ver eventos</button>
+        <button class="promo-btn promo-close" onclick="document.getElementById('promo1108').classList.remove('show');localStorage.setItem('promo1108dismissed','1');" aria-label="Cerrar anuncio">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Año dinámico
+    // Año en footer
     document.getElementById('year').innerText = new Date().getFullYear();
 
-    // Menú hamburguesa responsive
+    // Menú hamburguesa
     const btn = document.querySelector('.hamburger');
     const nav = document.getElementById('nav');
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click',()=>{
       const open = nav.classList.toggle('show');
       btn.setAttribute('aria-expanded', open);
     });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
       nav.classList.remove('show');
       btn.setAttribute('aria-expanded','false');
     }));
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    const galleryImgs = document.querySelectorAll('.carousel-item img');
-    galleryImgs.forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('active');
+    // Lightbox básico
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      const lbClose = document.getElementById('lbClose');
+      document.getElementById('gal').addEventListener('click', e=>{
+        const t = e.target;
+        if(t.tagName === 'IMG'){
+          lbImg.src = t.src;
+          lb.classList.add('active');
+        }
       });
-    });
-    lightbox.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg) {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-      }
-    });
+      function closeLB(){ lb.classList.remove('active'); lbImg.src=''; }
+      lbClose.addEventListener('click', closeLB);
+      lb.addEventListener('click', e=>{ if(e.target===lb) closeLB(); });
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLB(); });
+    })();
 
-    // Carrusel: flechas + drag + accesibilidad
-    const track = document.getElementById('track');
-    const prev = document.querySelector('.cprev');
-    const next = document.querySelector('.cnext');
-
-    const itemWidth = () => track.querySelector('.carousel-item')?.getBoundingClientRect().width || 220;
-    const scrollStep = () => itemWidth() + 12;
-
-    prev.addEventListener('click', () => track.scrollBy({left: -scrollStep(), behavior: 'smooth'}));
-    next.addEventListener('click', () => track.scrollBy({left:  scrollStep(), behavior: 'smooth'}));
-
-    // Drag / Swipe
-    let isDown = false, startX, scrollLeft;
-    track.addEventListener('mousedown', (e)=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
-    track.addEventListener('mouseleave', ()=>isDown=false);
-    track.addEventListener('mouseup',   ()=>isDown=false);
-    track.addEventListener('mousemove', (e)=>{
-      if(!isDown) return;
-      e.preventDefault();
-      const x = e.pageX-track.offsetLeft;
-      const walk = (x-startX)*1.2;
-      track.scrollLeft = scrollLeft - walk;
-    });
-    // Touch
-    let tsX=0, tsSL=0;
-    track.addEventListener('touchstart',(e)=>{tsX=e.touches[0].pageX;tsSL=track.scrollLeft},{passive:true});
-    track.addEventListener('touchmove',(e)=>{const dx=e.touches[0].pageX-tsX;track.scrollLeft=tsSL-dx},{passive:true});
+    // Aviso: sólo 08/11/2025 hasta 22:30 (hora local)
+    (function(){
+      try{
+        var now = new Date();
+        var targetDay = new Date(2025, 10, 8);           // Mes 10 = noviembre
+        var cutoff    = new Date(2025, 10, 8, 22, 30, 0); // 22:30
+        var sameDay   = now.toDateString() === targetDay.toDateString();
+        var beforeCut = now.getTime() < cutoff.getTime();
+        var dismissed = localStorage.getItem('promo1108dismissed') === '1';
+        if(sameDay && beforeCut && !dismissed){
+          document.getElementById('promo1108').classList.add('show');
+        }
+        if(!beforeCut){ localStorage.setItem('promo1108dismissed','1'); }
+      }catch(e){/* no-op */}
+    })();
   </script>
 </body>
 </html>
