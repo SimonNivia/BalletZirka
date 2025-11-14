@@ -33,26 +33,20 @@
     .container{max-width:1200px;margin:0 auto;padding:0 18px}
     .brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 
-    /* Logo sin fondo blanco, estilo circular */
+    /* Logo circular, sin fondo blanco */
     .logo{
-      width:120px;
-      height:120px;
+      width:120px;height:120px;
       border-radius:999px;
-      background:rgba(0,0,0,.5);           /* halo oscuro como en el ejemplo */
+      background:rgba(0,0,0,.6);
       border:2px solid rgba(255,255,255,.9);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex;align-items:center;justify-content:center;
       padding:8px;
       animation:fadeIn .8s ease both;
       box-shadow:0 10px 24px rgba(0,0,0,.45);
       overflow:hidden;
     }
     .logoimg{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
+      width:100%;height:100%;object-fit:contain;display:block;
     }
 
     .brand-title{font-weight:800}
@@ -72,8 +66,30 @@
       .navlinks.show{display:flex}
     }
 
-    /* Hero + CTA */
+    /* HERO con foto de fondo */
+    .hero{
+      position:relative;
+      padding:60px 0 40px;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;
+      inset:-30px;
+      background:
+        linear-gradient(160deg, rgba(0,0,0,.75), rgba(0,0,0,.2)),
+        url("img/imgbg-zirka-1.jpg") center center / cover no-repeat;
+      filter:brightness(.85);
+      transform:scale(1.03);
+      z-index:-1;
+      animation:heroZoom 22s ease-in-out infinite alternate;
+    }
+    .hero-inner{
+      position:relative;
+      max-width:900px;
+    }
     .hero h1{margin:18px 0 8px}
+    .hero p{max-width:650px}
+
     .cta{
       display:inline-block;margin-top:12px;color:#fff;padding:12px 20px;border-radius:12px;
       text-decoration:none;font-weight:900;letter-spacing:.2px;
@@ -92,6 +108,29 @@
     }
     .grid{display:grid;gap:20px}
     .two{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))}
+
+    /* Sección con foto de fondo (eventos) */
+    .section-foto{
+      position:relative;
+      overflow:hidden;
+      margin-top:24px;
+      border-radius:16px;
+    }
+    .section-foto::before{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.45)),
+        url("img/imgbg-zirka-2.jpg.jpg") center center / cover no-repeat;
+      z-index:-1;
+      filter:brightness(.9);
+    }
+    .section-foto .card{
+      background:transparent;
+      box-shadow:none;
+      border:1px solid rgba(255,255,255,.45);
+    }
 
     /* Gallery */
     .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
@@ -129,6 +168,10 @@
 
     @keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes heroZoom{
+      from{ transform:scale(1.03); }
+      to{   transform:scale(1.12); }
+    }
   </style>
 </head>
 <body>
@@ -158,17 +201,21 @@
   </header>
 
   <main class="container">
+    <!-- HERO con foto -->
     <section class="hero">
-      <h1>Ballet Infanto-Juvenil Zirka</h1>
-      <p>Promoviendo la identidad ucraniana a través de la danza, la cultura y la formación de nuevas generaciones desde 1989.</p>
-      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank" rel="noopener">Vení a bailar con nosotros</a>
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <h1>Ballet Infanto-Juvenil Zirka</h1>
+        <p>Promoviendo la identidad ucraniana a través de la danza, la cultura y la formación de nuevas generaciones desde 1989.</p>
+        <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank" rel="noopener">Vení a bailar con nosotros</a>
 
-      <div class="card">
-        <h3>Resumen</h3>
-        <p>
-          Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años).
-          Además de danza, se enseñan idioma, historia, bordado y artes visuales. Trabajo ad honorem y gran participación familiar en la organización.
-        </p>
+        <div class="card">
+          <h3>Resumen</h3>
+          <p>
+            Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años).
+            Además de danza, se enseñan idioma, historia, bordado y artes visuales. Trabajo ad honorem y gran participación familiar en la organización.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -216,7 +263,8 @@
       </div>
     </section>
 
-    <section id="eventos">
+    <!-- EVENTOS con foto -->
+    <section id="eventos" class="section-foto">
       <div class="card">
         <h2>Eventos y presentaciones</h2>
         <ul>
