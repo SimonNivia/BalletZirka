@@ -33,87 +33,6 @@
     .container{max-width:1200px;margin:0 auto;padding:0 18px}
     .brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 
-    /* Logo circular, sin fondo blanco */
-    .logo{
-      width:120px;height:120px;
-      border-radius:999px;
-      background:rgba(0,0,0,.6);
-      border:2px solid rgba(255,255,255,.9);
-      display:flex;align-items:center;justify-content:center;
-      padding:8px;
-      animation:fadeIn .8s ease both;
-      box-shadow:0 10px 24px rgba(0,0,0,.45);
-      overflow:hidden;
-    }
-    .logoimg{
-      width:100%;height:100%;object-fit:contain;display:block;
-    }
-
-    .brand-title{font-weight:800}
-    .brand-sub{font-size:13px;color:var(--txtSoft)}
-
-    .navwrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .navlinks{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .navlinks a{color:#fff;font-weight:700;padding:8px 12px;border-radius:8px;transition:.25s}
-    .navlinks a:hover{background:rgba(255,255,255,.15)}
-    .hamburger{display:none;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);border-radius:10px;padding:8px 10px;color:#fff;cursor:pointer}
-    .hamburger .bar{display:block;width:22px;height:2px;background:#fff;margin:5px 0}
-
-    @media(max-width:768px){
-      .logo{width:90px;height:90px}
-      .hamburger{display:block}
-      .navlinks{display:none;width:100%;flex-direction:column;align-items:flex-start;background:rgba(0,0,0,.35);border-radius:12px;padding:10px;margin-top:10px}
-      .navlinks.show{display:flex}
-    }
-
-    /* HERO con foto de fondo */
-    .hero{
-      position:relative;
-      padding:60px 0 40px;
-      overflow:hidden;
-    }
-    .hero-bg{
-      position:absolute;
-      inset:-30px;
-      background:
-        linear-gradient(160deg, rgba(0,0,0,.75), rgba(0,0,0,.2)),
-        url("img/imgbg-zirka-1.jpg") center center / cover no-repeat;
-      filter:brightness(.85);
-      transform:scale(1.03);<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ballet Zirka — Asociación Cultural Ucraniana 27 de Agosto</title>
-  <meta name="description" content="Ballet Infanto-Juvenil Zirka — tradición, cultura y danza. Información, eventos y contacto.">
-  <link rel="icon" href="img/favicon.png" type="image/png">
-  <style>
-    :root{
-      --bg1:#362d9f; --bg2:#392f02;
-      --card1:#2e2691; --card2:#3a3008;
-      --txt:#ffffff; --txtSoft:#e6e6e6; --link:#8be9fd;
-      --accent1:#4a3be0; --accent2:#21c36f; --accent3:#023903;
-      --cardBorder: rgba(255,255,255,.35);
-    }
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; color:var(--txt);
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 100%);
-    }
-    a{color:var(--link); text-decoration:none}
-
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:1000;
-      padding:16px 20px;
-      background:rgba(0,0,0,.22);
-      backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .container{max-width:1200px;margin:0 auto;padding:0 18px}
-    .brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-
     /* Logo sin fondo blanco, estilo circular */
     .logo{
       width:120px;
@@ -439,4 +358,3 @@
   </script>
 </body>
 </html>
-
