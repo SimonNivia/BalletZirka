@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ballet Zirka — Asociación Cultural Ucraniana 27 de Agosto</title>
-  <meta name="description" content="Ballet Infanto-Juvenil Zirka. Danza ucraniana, identidad cultural y formación artística desde 1989 en Posadas.">
+  <meta name="description" content="Ballet Ucraniano Infanto-Juvenil Zirka. Danza ucraniana, identidad cultural y formación artística desde 1989 en Posadas.">
 
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -16,14 +16,12 @@
       --txt:#ffffff;
       --txtSoft:#e4e4e4;
 
-      /* Cards modernas violeta */
-      --cardBg:linear-gradient(160deg, #2b246e, #1b1742);
+      --cardBg:linear-gradient(160deg, #2c226d, #1a163f);
 
-      /* Dorado premium */
       --gold1:#d4af37;
       --gold2:#fceabb;
 
-      --border:rgba(255,255,255,.25);
+      --border:rgba(255,255,255,.22);
     }
 
     html{scroll-behavior:smooth}
@@ -33,17 +31,17 @@
       color:var(--txt);
       font-family:Inter, system-ui;
     }
+
     a{color:#8be9fd;text-decoration:none}
 
     /* HEADER */
     header{
       position:sticky;top:0;z-index:1000;
-      background:rgba(0,0,0,.25);
-      backdrop-filter:blur(8px);
+      background:rgba(0,0,0,.30);
+      backdrop-filter:blur(6px);
       padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-
     .container{max-width:1200px;margin:auto;padding:0 20px}
 
     .navwrap{
@@ -51,14 +49,11 @@
     }
 
     .brand{
-      display:flex;align-items:center;gap:18px;
+      display:flex;align-items:center;gap:16px;
     }
 
-    /* LOGO – GRANDE Y NÍTIDO */
     .logoimg{
-      width:150px;
-      height:auto;
-      display:block;
+      width:140px;height:auto;display:block;
       object-fit:contain;
       filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
     }
@@ -66,7 +61,6 @@
     .brand-title{font-weight:900;font-size:22px}
     .brand-sub{font-size:13px;color:var(--txtSoft)}
 
-    /* NAV */
     .navlinks{
       display:flex;gap:20px;font-weight:700;
     }
@@ -85,8 +79,7 @@
     }
 
     @media(max-width:800px){
-      .logoimg{width:120px}
-
+      .logoimg{width:105px}
       .hamburger{display:block}
       .navlinks{
         display:none;flex-direction:column;background:rgba(0,0,0,.35);
@@ -95,7 +88,50 @@
       .navlinks.show{display:flex}
     }
 
-    /* CTA DORADO */
+    /* HERO */
+    .hero{
+      position:relative;
+      width:100%;
+      height:63vh; /* Cinematográfico */
+      min-height:420px;
+      background:url('img/imdbg-zirka-1.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom,
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.65)
+      );
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:20px;
+      animation:fadeUp .9s ease both;
+    }
+    .hero h1{
+      font-size:46px;
+      font-weight:900;
+      line-height:1.1;
+      text-shadow:0 4px 14px rgba(0,0,0,.6);
+    }
+    .hero p{
+      font-size:18px;margin-top:10px;color:#e8e8e8;
+      text-shadow:0 4px 14px rgba(0,0,0,.6);
+    }
+
+    @media(max-width:600px){
+      .hero h1{font-size:30px}
+      .hero p{font-size:15px}
+    }
+
     .cta{
       display:inline-block;padding:14px 24px;margin-top:20px;
       font-weight:900;border-radius:14px;color:#000;
@@ -199,24 +235,26 @@
 
       <nav id="nav" class="navlinks">
         <a href="#historia">Historia</a>
-        <a href="#actividades">Actividades</a>
-        <a href="#eventos">Eventos</a>
+        <a href="#logros">Logros</a>
         <a href="#galeria">Galería</a>
+        <a href="#actividades">Actividades</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
     </div>
   </header>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ballet Ucraniano Infanto-Juvenil Zirka</h1>
+      <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
+      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank">Quiero inscribirme</a>
+    </div>
+  </section>
+
   <!-- MAIN -->
   <main class="container">
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Ballet Infanto-Juvenil Zirka</h1>
-      <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
-      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank">Vení a bailar con nosotros</a>
-    </section>
 
     <!-- RESUMEN -->
     <div class="card">
@@ -226,31 +264,27 @@
 
     <!-- HISTORIA -->
     <section id="historia" class="grid two">
-
-      <!-- BLOQUE 1 -->
       <div class="card">
         <h2>Nacimiento y primeros años</h2>
         <p>El Ballet Infanto-Juvenil Zirka nació el 2 de abril de 1989 como el semillero de la Asociación Cultural Ucraniana “27 de Agosto”. Su creación respondió al entusiasmo de los niños que, inspirados por el Ballet de mayores, buscaban también un espacio para expresarse a través de la danza ucraniana.</p>
 
         <p>En sus inicios, las clases estaban dirigidas a niños de entre 4 y 17 años, bajo la conducción de Jorge Brycki y Rosa Melnik. En aquel tiempo, el grupo se conocía como “Ballet Ucraniano Infantil de la Ciudad de Posadas”.</p>
 
-        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki. Ellos le dieron al grupo una identidad propia y eligieron el nombre “Zirka”, que en ucraniano significa “estrella”, simbolizando brillo, esperanza y libertad en cada presentación.</p>
+        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki. Ellos le dieron al grupo una identidad propia y eligieron el nombre “Zirka”, que en ucraniano significa “estrella”.</p>
       </div>
 
-      <!-- BLOQUE 2 -->
       <div class="card">
         <h2>Crecimiento y actualidad</h2>
         <p>A lo largo de 36 años, Zirka ha formado generaciones de niños y jóvenes, convirtiéndose en una referencia de la cultura ucraniana en Posadas y en la región. Actualmente reúne a más de 50 alumnos de 4 a 16 años.</p>
 
-        <p>La formación que ofrece es integral: además de danza, se enseñan idioma ucraniano, historia, geografía, bordado tradicional y artes visuales. Estas disciplinas son impartidas por integrantes del ballet adulto, quienes se capacitan constantemente en talleres nacionales e internacionales.</p>
+        <p>Además de danza, se enseñan idioma ucraniano, historia, geografía, bordado tradicional y artes visuales. Estas disciplinas son impartidas por integrantes del ballet adulto, quienes se capacitan constantemente en talleres nacionales e internacionales.</p>
 
         <p>Todo el trabajo es ad honorem y cuenta con un fuerte acompañamiento de familias y colaboradores, quienes organizan actividades para sostener las propuestas culturales del grupo.</p>
       </div>
-
     </section>
 
     <!-- LOGROS -->
-    <section id="eventos">
+    <section id="logros">
       <div class="card">
         <h2>Logros y participación</h2>
 
@@ -265,7 +299,7 @@
           <li>Festival “35 años Zirka” — Posadas</li>
         </ul>
 
-        <h3>Participación en eventos locales, nacionales e internacionales</h3>
+        <h3>Participación local, nacional e internacional</h3>
         <ul>
           <li>Fiesta Internacional de la Yerba Mate — Apóstoles</li>
           <li>Fiesta Nacional e Internacional del Inmigrante — Oberá</li>
@@ -275,7 +309,6 @@
           <li>Fiesta de las Raíces — Jardín América</li>
           <li>Fiesta Nacional de las Colectividades — Córdoba</li>
         </ul>
-
       </div>
     </section>
 
@@ -286,6 +319,8 @@
         <p>Clic para ampliar.</p>
 
         <div class="gallery" id="gal">
+
+          <!-- 40 imágenes reales -->
           <img loading="lazy" src="img/zirka-1.jpg.jpeg">
           <img loading="lazy" src="img/zirka-2.jpg.jpeg">
           <img loading="lazy" src="img/zirka-3.jpg.jpeg">
@@ -326,6 +361,7 @@
           <img loading="lazy" src="img/zirka-38.jpg.jpeg">
           <img loading="lazy" src="img/zirka-39.jpg.jpeg">
           <img loading="lazy" src="img/zirka-40.jpg.jpeg">
+
         </div>
       </div>
     </section>
@@ -380,7 +416,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // MENU
     const ham = document.querySelector(".hamburger");
     const nav = document.getElementById("nav");
     ham.onclick = () => {
@@ -388,7 +423,6 @@
       ham.setAttribute("aria-expanded", nav.classList.contains("show"));
     };
 
-    // LIGHTBOX
     const lb = document.getElementById("lightbox");
     const lbImg = document.getElementById("lbImg");
 
