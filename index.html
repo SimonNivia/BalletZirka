@@ -8,8 +8,6 @@
   <meta name="description" content="Ballet Infanto-Juvenil Zirka. Danza ucraniana, identidad cultural y formación artística desde 1989 en Posadas.">
 
   <link rel="icon" href="img/favicon.png" type="image/png">
-
-  <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -18,13 +16,14 @@
       --txt:#ffffff;
       --txtSoft:#e4e4e4;
 
-      /* Cards modernas azul-violeta */
+      /* Cards modernas violeta */
       --cardBg:linear-gradient(160deg, #2b246e, #1b1742);
 
+      /* Dorado premium */
       --gold1:#d4af37;
       --gold2:#fceabb;
 
-      --border:rgba(255,255,255,.28);
+      --border:rgba(255,255,255,.25);
     }
 
     html{scroll-behavior:smooth}
@@ -41,93 +40,68 @@
       position:sticky;top:0;z-index:1000;
       background:rgba(0,0,0,.25);
       backdrop-filter:blur(8px);
-      padding:14px 0;
+      padding:10px 0;
       border-bottom:1px solid rgba(255,255,255,.08);
     }
+
     .container{max-width:1200px;margin:auto;padding:0 20px}
 
     .navwrap{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex;justify-content:space-between;align-items:center;
     }
 
     .brand{
-      display:flex;align-items:center;gap:14px;
+      display:flex;align-items:center;gap:16px;
     }
-    .logo{
-      width:100px;height:100px;
-      border-radius:999px;
-      overflow:hidden;
-      border:2px solid rgba(255,255,255,.9);
-      box-shadow:0 10px 24px rgba(0,0,0,.45);
-      background:rgba(0,0,0,.4);
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logoimg{width:100%;height:100%;object-fit:contain}
 
-    .brand-title{font-weight:900;font-size:20px}
+    /* LOGO GRANDE (OPCIÓN A – SIN CÍRCULO) */
+    .logoimg{
+      width:140px;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
+    }
+
+    .brand-title{font-weight:900;font-size:22px}
     .brand-sub{font-size:13px;color:var(--txtSoft)}
 
     /* NAV */
     .navlinks{
-      display:flex;gap:20px;
-      font-weight:700;
+      display:flex;gap:20px;font-weight:700;
     }
     .navlinks a{
-      padding:8px 12px;
-      border-radius:10px;
-      transition:.25s;
-      color:#fff;
+      padding:8px 12px;border-radius:10px;color:#fff;transition:.25s;
     }
-    .navlinks a:hover{
-      background:rgba(255,255,255,.15);
-    }
+    .navlinks a:hover{background:rgba(255,255,255,.15)}
 
     .hamburger{
-      display:none;
-      background:rgba(255,255,255,.15);
-      padding:10px;
-      border-radius:10px;
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,.3);
+      display:none;background:rgba(255,255,255,.15);
+      padding:10px;border-radius:10px;
+      cursor:pointer;border:1px solid rgba(255,255,255,.3);
     }
     .hamburger .bar{
-      width:22px;height:2px;background:white;margin:5px 0;
-      border-radius:3px;
+      width:22px;height:2px;background:white;margin:5px 0;border-radius:3px;
     }
 
     @media(max-width:800px){
-      .logo{width:80px;height:80px}
+      .logoimg{width:110px}
 
       .hamburger{display:block}
       .navlinks{
-        display:none;
-        flex-direction:column;
-        background:rgba(0,0,0,.35);
-        width:100%;
-        padding:12px;
-        margin-top:12px;
-        border-radius:12px;
-        text-align:left;
+        display:none;flex-direction:column;background:rgba(0,0,0,.35);
+        width:100%;padding:12px;margin-top:12px;border-radius:12px;
       }
       .navlinks.show{display:flex}
     }
 
-    /* HERO */
-    .hero h1{margin:22px 0 10px}
-    
-    /* BOTÓN DORADO PREMIUM */
+    /* CTA DORADO */
     .cta{
-      display:inline-block;
-      padding:14px 24px;
-      margin-top:16px;
-      font-weight:900;
-      border-radius:14px;
-      color:#000;
-      background:linear-gradient(135deg, var(--gold1), var(--gold2));
-      border:1px solid rgba(0,0,0,.2);
-      box-shadow:0 12px 28px rgba(0,0,0,.35);
+      display:inline-block;padding:14px 24px;margin-top:20px;
+      font-weight:900;border-radius:14px;color:#000;
+      background:linear-gradient(135deg,var(--gold1),var(--gold2));
+      border:1px solid rgba(0,0,0,.25);
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
       transition:.25s;
     }
     .cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
@@ -135,93 +109,72 @@
     /* CARD */
     .card{
       background:var(--cardBg);
-      margin-top:28px;
-      padding:24px;
-      border-radius:16px;
-      border:1px solid var(--border);
+      margin-top:30px;padding:26px;
+      border-radius:16px;border:1px solid var(--border);
       box-shadow:0 12px 32px rgba(0,0,0,.4);
+      animation:fadeUp .7s ease both;
     }
 
-    .grid{
-      display:grid;
-      gap:24px;
-    }
-    .two{
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    }
+    .grid{display:grid;gap:24px}
+    .two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 
     /* GALLERY */
     .gallery{
-      display:grid;
-      gap:12px;
+      display:grid;gap:12px;
       grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
     }
     .gallery img{
       width:100%;height:150px;object-fit:cover;
-      border-radius:12px;
-      cursor:pointer;
-      transition:.25s;
-      box-shadow:0 8px 20px rgba(0,0,0,.35);
+      border-radius:12px;cursor:pointer;
+      transition:.25s;box-shadow:0 8px 20px rgba(0,0,0,.35);
     }
     .gallery img:hover{transform:scale(1.05)}
 
     /* LIGHTBOX */
     .lightbox{
       position:fixed;inset:0;
-      display:none;align-items:center;justify-content:center;
       background:rgba(0,0,0,.85);
+      display:none;align-items:center;justify-content:center;
       z-index:9999;
     }
     .lightbox.active{display:flex}
     .lightbox img{
-      max-width:95vw;max-height:85vh;
-      border-radius:12px;
+      max-width:95vw;max-height:85vh;border-radius:12px;
       box-shadow:0 20px 40px rgba(0,0,0,.6);
     }
     .lightbox .close{
-      position:absolute;top:20px;right:30px;
-      font-size:32px;font-weight:900;color:white;
-      cursor:pointer;
+      position:absolute;top:20px;right:30px;color:#fff;
+      font-size:32px;font-weight:900;cursor:pointer;
     }
 
     /* FORM */
     .field{
-      width:100%;padding:12px;
-      background:rgba(255,255,255,.1);
-      border:1px solid rgba(255,255,255,.3);
-      border-radius:12px;
-      margin-bottom:12px;
-      color:white;
+      width:100%;padding:12px;margin-bottom:12px;
+      border-radius:12px;background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.3);color:white;
     }
     .btn{
-      padding:12px 20px;
-      border-radius:12px;
-      font-weight:900;
-      background:linear-gradient(135deg, var(--gold1), var(--gold2));
-      color:black;
-      border:none;
-      cursor:pointer;
+      padding:12px 20px;border-radius:12px;font-weight:900;
+      background:linear-gradient(135deg,var(--gold1),var(--gold2));
+      color:black;border:none;cursor:pointer;
     }
 
-    /* WHATSAPP FAB */
+    /* WHATSAPP */
     .wa-fab{
       position:fixed;right:22px;bottom:22px;
-      background:#25D366;
-      color:#0b371a;
-      padding:12px 18px;
-      font-weight:900;
-      border-radius:999px;
-      display:flex;align-items:center;gap:8px;
-      box-shadow:0 14px 30px rgba(0,0,0,.35);
-      z-index:2000;
+      background:#25D366;color:#0b371a;padding:12px 18px;
+      font-weight:900;border-radius:999px;display:flex;gap:8px;
+      box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:2000;
     }
     .wa-fab img{width:22px}
 
     footer{
-      text-align:center;
-      padding:32px 0;
-      color:var(--txtSoft);
-      margin-top:40px;
+      text-align:center;padding:32px 0;color:var(--txtSoft);margin-top:40px;
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(14px)}
+      to{opacity:1;transform:none}
     }
   </style>
 </head>
@@ -233,20 +186,18 @@
     <div class="container navwrap">
 
       <div class="brand">
-        <div class="logo">
-          <img src="img/zirka-logo.png" class="logoimg" alt="Logo Ballet Zirka">
-        </div>
+        <img src="img/zirka-logo.png" alt="Logo Ballet Zirka" class="logoimg">
         <div>
           <div class="brand-title">Ballet Zirka</div>
           <div class="brand-sub">Asociación Cultural Ucraniana “27 de Agosto” — Posadas</div>
         </div>
       </div>
 
-      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <button class="hamburger" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <nav class="navlinks" id="nav">
+      <nav id="nav" class="navlinks">
         <a href="#historia">Historia</a>
         <a href="#actividades">Actividades</a>
         <a href="#eventos">Eventos</a>
@@ -263,78 +214,65 @@
     <!-- HERO -->
     <section class="hero">
       <h1>Ballet Infanto-Juvenil Zirka</h1>
-      <p>Promoviendo la identidad ucraniana a través de la danza, la cultura y la formación de nuevas generaciones desde 1989.</p>
+      <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
       <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank">Vení a bailar con nosotros</a>
-
-      <div class="card">
-        <h3>Resumen</h3>
-        <p>Fundado el 2 de abril de 1989 como semillero de la Asociación Cultural Ucraniana “27 de Agosto”, Zirka reúne actualmente a más de 50 alumnos (4 a 16 años). Además de danza, se enseñan idioma, historia, bordado y artes visuales.</p>
-      </div>
     </section>
 
-    <!-- DATOS CLAVE -->
-    <section class="grid two">
-      <div class="card">
-        <h2>Datos clave</h2>
-        <ul>
-          <li><strong>Fundación:</strong> 2 de abril de 1989</li>
-          <li><strong>Edad de alumnos:</strong> 4 a 16 años</li>
-          <li><strong>Alumnos actuales:</strong> +50</li>
-          <li><strong>Dirección:</strong> Perito Moreno 5271 — Posadas</li>
-          <li><strong>Trabajo:</strong> 100% ad honorem</li>
-        </ul>
-      </div>
-
-      <aside class="card">
-        <h2>Contacto rápido</h2>
-        <p>Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
-
-        <p><strong>Coordinadores</strong></p>
-        <ul>
-          <li>Cristian: <a href="tel:+543754456239">+54 3754 456239</a></li>
-          <li>Nuria: <a href="tel:+543764607244">+54 376 4607244</a></li>
-        </ul>
-
-        <p>Instagram: <a href="https://www.instagram.com/balletzirka.posadas" target="_blank">@balletzirka.posadas</a></p>
-      </aside>
-    </section>
+    <!-- RESUMEN -->
+    <div class="card">
+      <h3>Resumen</h3>
+      <p>Zirka es el semillero cultural de la Asociación Cultural Ucraniana “27 de Agosto”. Con más de 50 alumnos de 4 a 16 años, el ballet combina danza, identidad, valores comunitarios y formación integral a través de disciplinas artísticas y culturales.</p>
+    </div>
 
     <!-- HISTORIA -->
     <section id="historia" class="grid two">
+
+      <!-- BLOQUE 1 -->
       <div class="card">
-        <h2>Historia del Ballet Zirka</h2>
-        <p>El Ballet Zirka nació en 1989 como un espacio destinado a promover la cultura ucraniana en nuevas generaciones. Surgió como el semillero del Ballet Mayor de la Asociación Cultural Ucraniana “27 de Agosto”.</p>
-        <p>Con el tiempo, fue dirigido por Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki, quienes le dieron el nombre “Zirka” (estrella). Hoy continúa formando niños en danza y tradición cultural.</p>
+        <h2>Nacimiento y primeros años</h2>
+        <p>El Ballet Infanto-Juvenil Zirka nació el 2 de abril de 1989 como el semillero de la Asociación Cultural Ucraniana “27 de Agosto”. Su creación respondió al entusiasmo de los niños que, inspirados por el Ballet de mayores, buscaban también un espacio para expresarse a través de la danza ucraniana.</p>
+
+        <p>En sus inicios, las clases estaban dirigidas a niños de entre 4 y 17 años, bajo la conducción de Jorge Brycki y Rosa Melnik. En aquel tiempo, el grupo se conocía como “Ballet Ucraniano Infantil de la Ciudad de Posadas”.</p>
+
+        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki. Ellos le dieron al grupo una identidad propia y eligieron el nombre “Zirka”, que en ucraniano significa “estrella”, simbolizando brillo, esperanza y libertad en cada presentación.»</p>
       </div>
 
+      <!-- BLOQUE 2 -->
       <div class="card">
-        <h2>Logros y participación</h2>
-        <ul>
-          <li>36 años de trayectoria continua.</li>
-          <li>Más de 50 alumnos activos.</li>
-          <li>Presencia en eventos locales, provinciales e internacionales.</li>
-          <li>Formación integral: danza, idioma, historia, bordado y pintura.</li>
-        </ul>
+        <h2>Crecimiento y actualidad</h2>
+        <p>A lo largo de 36 años, Zirka ha formado generaciones de niños y jóvenes, convirtiéndose en una referencia de la cultura ucraniana en Posadas y en la región. Actualmente reúne a más de 50 alumnos de 4 a 16 años.</p>
+
+        <p>La formación que ofrece es integral: además de danza, se enseñan idioma ucraniano, historia, geografía, bordado tradicional y artes visuales. Estas disciplinas son impartidas por integrantes del ballet adulto, quienes se capacitan constantemente en talleres nacionales e internacionales.</p>
+
+        <p>Todo el trabajo es ad honorem y cuenta con un fuerte acompañamiento de familias y colaboradores, quienes organizan actividades para sostener las propuestas culturales del grupo.</p>
       </div>
+
     </section>
 
-    <!-- EVENTOS -->
-    <section id="eventos">
+    <!-- LOGROS -->
+    <section id="logros">
       <div class="card">
-        <h2>Eventos y presentaciones</h2>
+        <h2>Logros y participación</h2>
+
+        <h3>Eventos destacados</h3>
         <ul>
-          <li><strong>Reto Hopak 2018 — Paraguay</strong> — Mejor Destreza.</li>
-          <li><strong>Parque del Conocimiento 2016</strong> — Posadas.</li>
-          <li><strong>Encuentro de Ballets Ucranios 2022</strong> — Oberá.</li>
-          <li><strong>Fiesta de la Yerba Mate 2023</strong> — Apóstoles.</li>
-          <li><strong>Peña de Colectividades</strong> — Posadas.</li>
-          <li><strong>Fiesta Nacional de la Navidad 2024</strong> — Alem.</li>
+          <li>Reto Hopak 2018 — Colonia Fram, Paraguay (Mejor Destreza)</li>
+          <li>Parque del Conocimiento 2016 — Posadas</li>
+          <li>Encuentro de Ballets Ucranios 2022 — Oberá</li>
+          <li>Fiesta Internacional de la Yerba Mate 2023 — Apóstoles</li>
+          <li>Peña de Colectividades — Profesorado de Geografía, Posadas</li>
+          <li>Fiesta Nacional de la Navidad 2024 — Leandro N. Alem</li>
+          <li>Festival “35 años Zirka” — Posadas</li>
         </ul>
 
-        <h3>Otras participaciones</h3>
+        <h3>Participación en eventos locales, nacionales e internacionales</h3>
         <ul>
-          <li>Fiesta del Inmigrante — Oberá.</li>
-          <li>Fiesta de las Raíces — Jardín América.</li>
+          <li>Fiesta Internacional de la Yerba Mate — Apóstoles</li>
+          <li>Fiesta Nacional e Internacional del Inmigrante — Oberá</li>
+          <li>Reto Hopak — Paraguay</li>
+          <li>Fiesta Nacional de la Navidad — Alem</li>
+          <li>Encuentro de Ballets Ucranios — Oberá</li>
+          <li>Fiesta de las Raíces — Jardín América</li>
         </ul>
       </div>
     </section>
@@ -346,36 +284,36 @@
         <p>Clic para ampliar.</p>
 
         <div class="gallery" id="gal">
-          <img src="img/zirka-1.jpg.jpeg">
-          <img src="img/zirka-2.jpg.jpeg">
-          <img src="img/zirka-3.jpg.jpeg">
-          <img src="img/zirka-4.jpg.jpeg">
-          <img src="img/zirka-5.jpg.jpeg">
-          <img src="img/zirka-6.jpg.jpeg">
-          <img src="img/zirka-7.jpg.jpeg">
-          <img src="img/zirka-8.jpg.jpeg">
-          <img src="img/zirka-9.jpg.jpeg">
-          <img src="img/zirka-10.jpg.jpeg">
-          <img src="img/zirka-11.jpg.jpeg">
-          <img src="img/zirka-12.jpg.jpeg">
-          <img src="img/zirka-13.jpg.jpeg">
-          <img src="img/zirka-14.jpg.jpeg">
-          <img src="img/zirka-15.jpg.jpeg">
-          <img src="img/zirka-16.jpg.jpeg">
-          <img src="img/zirka-17.jpg.jpeg">
-          <img src="img/zirka-18.jpg.jpeg">
-          <img src="img/zirka-19.jpg.jpeg">
-          <img src="img/zirka-20.jpg.jpeg">
-          <img src="img/zirka-21.jpg.jpeg">
-          <img src="img/zirka-22.jpg.jpeg">
-          <img src="img/zirka-23.jpg.jpeg">
-          <img src="img/zirka-24.jpg.jpeg">
-          <img src="img/zirka-25.jpg.jpeg">
-          <img src="img/zirka-26.jpg.jpeg">
-          <img src="img/zirka-27.jpg.jpeg">
-          <img src="img/zirka-28.jpg.jpeg">
-          <img src="img/zirka-29.jpg.jpeg">
-          <img src="img/zirka-30.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-1.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-2.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-3.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-4.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-5.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-6.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-7.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-8.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-9.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-10.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-11.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-12.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-13.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-14.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-15.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-16.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-17.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-18.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-19.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-20.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-21.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-22.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-23.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-24.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-25.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-26.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-27.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-28.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-29.jpg.jpeg">
+          <img loading="lazy" src="img/zirka-30.jpg.jpeg">
         </div>
       </div>
     </section>
@@ -401,7 +339,7 @@
         <p>Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
         <p>Instagram: <a href="https://www.instagram.com/balletzirka.posadas" target="_blank">@balletzirka.posadas</a></p>
 
-        <form onsubmit="alert('Formulario simulado. Usá Google Forms o backend.');return false;">
+        <form onsubmit="alert('Formulario simulado. Para uso real, integrar Google Forms o backend.');return false;">
           <input class="field" placeholder="Nombre" required>
           <input type="email" class="field" placeholder="Correo" required>
           <textarea class="field" rows="4" placeholder="Mensaje" required></textarea>
@@ -453,5 +391,6 @@
     lb.onclick = e => { if(e.target===lb) lb.classList.remove("active") };
     document.onkeydown = e => { if(e.key==="Escape") lb.classList.remove("active") };
   </script>
+
 </body>
 </html>
