@@ -31,7 +31,6 @@
       color:var(--txt);
       font-family:Inter, system-ui;
     }
-
     a{color:#8be9fd;text-decoration:none}
 
     /* HEADER */
@@ -46,15 +45,20 @@
 
     .navwrap{
       display:flex;justify-content:space-between;align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
     .brand{
       display:flex;align-items:center;gap:16px;
+      min-width:260px;
     }
 
+    /* Logo sin “fondo blanco” (depende del PNG, pero esto evita el bloque blanco del contenedor) */
     .logoimg{
       width:140px;height:auto;display:block;
       object-fit:contain;
+      background:transparent;
       filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
     }
 
@@ -63,6 +67,9 @@
 
     .navlinks{
       display:flex;gap:20px;font-weight:700;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
     .navlinks a{
       padding:8px 12px;border-radius:10px;color:#fff;transition:.25s;
@@ -88,11 +95,68 @@
       .navlinks.show{display:flex}
     }
 
+    /* 🎆 Overlay Año Nuevo */
+    .ny-overlay{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.62);
+      display:flex; align-items:center; justify-content:center;
+      z-index:12000;
+      opacity:1;
+      transition:opacity .6s ease;
+    }
+    .ny-overlay.hide{opacity:0; pointer-events:none}
+    .ny-card{
+      width:min(720px,92vw);
+      border-radius:18px;
+      padding:22px 22px;
+      background:linear-gradient(160deg, rgba(44,34,109,.96), rgba(26,22,63,.96));
+      border:1px solid rgba(255,255,255,.22);
+      box-shadow:0 18px 48px rgba(0,0,0,.55);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      animation:fadeUp .7s ease both;
+    }
+    .ny-top{
+      font-weight:800;
+      color:#eae8ff;
+      font-size:1.05rem;
+      letter-spacing:.2px;
+    }
+    .ny-title{
+      margin-top:10px;
+      font-weight:900;
+      font-size:2.3rem;
+      line-height:1.05;
+      background:linear-gradient(135deg,var(--gold1),var(--gold2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .ny-sub{
+      margin-top:10px;
+      color:#e8e8e8;
+      font-weight:700;
+    }
+    .ny-stars span{
+      position:absolute;
+      opacity:.65;
+      filter:drop-shadow(0 0 10px rgba(255,255,255,.15));
+      animation:starFloat 5.5s ease-in-out infinite;
+      font-size:18px;
+    }
+    .ny-stars span:nth-child(1){top:14%;left:14%; animation-delay:0s}
+    .ny-stars span:nth-child(2){top:20%;right:16%; animation-delay:.4s}
+    .ny-stars span:nth-child(3){bottom:18%;left:22%; animation-delay:.8s}
+    .ny-stars span:nth-child(4){bottom:20%;right:20%; animation-delay:1.2s}
+    .ny-stars span:nth-child(5){top:45%;left:7%; animation-delay:.2s}
+    .ny-stars span:nth-child(6){top:50%;right:8%; animation-delay:.9s}
+
     /* HERO */
     .hero{
       position:relative;
       width:100%;
-      height:63vh; /* Cinematográfico */
+      height:63vh;
       min-height:420px;
       background:url('img/imgbg-zirka-1.jpg?v=2') center/cover no-repeat;
       display:flex;
@@ -121,10 +185,12 @@
       font-weight:900;
       line-height:1.1;
       text-shadow:0 4px 14px rgba(0,0,0,.6);
+      margin:0;
     }
     .hero p{
       font-size:18px;margin-top:10px;color:#e8e8e8;
       text-shadow:0 4px 14px rgba(0,0,0,.6);
+      margin-bottom:0;
     }
 
     @media(max-width:600px){
@@ -181,6 +247,7 @@
     .lightbox .close{
       position:absolute;top:20px;right:30px;color:#fff;
       font-size:32px;font-weight:900;cursor:pointer;
+      user-select:none;
     }
 
     /* FORM */
@@ -188,7 +255,9 @@
       width:100%;padding:12px;margin-bottom:12px;
       border-radius:12px;background:rgba(255,255,255,.1);
       border:1px solid rgba(255,255,255,.3);color:white;
+      outline:none;
     }
+    .field::placeholder{color:rgba(255,255,255,.7)}
     .btn{
       padding:12px 20px;border-radius:12px;font-weight:900;
       background:linear-gradient(135deg,var(--gold1),var(--gold2));
@@ -201,6 +270,7 @@
       background:#25D366;color:#0b371a;padding:12px 18px;
       font-weight:900;border-radius:999px;display:flex;gap:8px;
       box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:2000;
+      align-items:center;
     }
     .wa-fab img{width:22px}
 
@@ -212,10 +282,26 @@
       from{opacity:0;transform:translateY(14px)}
       to{opacity:1;transform:none}
     }
+    @keyframes starFloat{
+      0%,100%{transform:translateY(0) scale(1); opacity:.55}
+      50%{transform:translateY(-10px) scale(1.18); opacity:.85}
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 🎆 OVERLAY FELIZ 2026 (se va solo) -->
+  <div class="ny-overlay" id="nyOverlay" aria-hidden="true">
+    <div class="ny-card" role="dialog" aria-modal="true" aria-label="Saludo 2026">
+      <div class="ny-stars" aria-hidden="true">
+        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+      </div>
+      <div class="ny-top">Mensaje institucional</div>
+      <div class="ny-title">Feliz 2026</div>
+      <div class="ny-sub">El Ballet Zirka les desea un feliz 2026</div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header>
@@ -229,7 +315,7 @@
         </div>
       </div>
 
-      <button class="hamburger" aria-expanded="false">
+      <button class="hamburger" aria-expanded="false" aria-label="Abrir menú">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
@@ -249,7 +335,7 @@
     <div class="hero-content">
       <h1>Ballet Ucraniano Infanto-Juvenil Zirka</h1>
       <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
-      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank">Quiero inscribirme</a>
+      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank" rel="noopener">Quiero inscribirme</a>
     </div>
   </section>
 
@@ -319,49 +405,46 @@
         <p>Clic para ampliar.</p>
 
         <div class="gallery" id="gal">
-
-          <!-- 40 imágenes reales -->
-          <img loading="lazy" src="img/zirka-1.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-2.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-3.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-4.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-5.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-6.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-7.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-8.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-9.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-10.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-11.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-12.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-13.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-14.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-15.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-16.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-17.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-18.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-19.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-20.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-21.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-22.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-23.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-24.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-25.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-26.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-27.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-28.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-29.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-30.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-31.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-32.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-33.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-34.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-35.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-36.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-37.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-38.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-39.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-40.jpg.jpeg">
-
+          <img loading="lazy" src="img/zirka-1.jpg.jpeg"  alt="Galería 1">
+          <img loading="lazy" src="img/zirka-2.jpg.jpeg"  alt="Galería 2">
+          <img loading="lazy" src="img/zirka-3.jpg.jpeg"  alt="Galería 3">
+          <img loading="lazy" src="img/zirka-4.jpg.jpeg"  alt="Galería 4">
+          <img loading="lazy" src="img/zirka-5.jpg.jpeg"  alt="Galería 5">
+          <img loading="lazy" src="img/zirka-6.jpg.jpeg"  alt="Galería 6">
+          <img loading="lazy" src="img/zirka-7.jpg.jpeg"  alt="Galería 7">
+          <img loading="lazy" src="img/zirka-8.jpg.jpeg"  alt="Galería 8">
+          <img loading="lazy" src="img/zirka-9.jpg.jpeg"  alt="Galería 9">
+          <img loading="lazy" src="img/zirka-10.jpg.jpeg" alt="Galería 10">
+          <img loading="lazy" src="img/zirka-11.jpg.jpeg" alt="Galería 11">
+          <img loading="lazy" src="img/zirka-12.jpg.jpeg" alt="Galería 12">
+          <img loading="lazy" src="img/zirka-13.jpg.jpeg" alt="Galería 13">
+          <img loading="lazy" src="img/zirka-14.jpg.jpeg" alt="Galería 14">
+          <img loading="lazy" src="img/zirka-15.jpg.jpeg" alt="Galería 15">
+          <img loading="lazy" src="img/zirka-16.jpg.jpeg" alt="Galería 16">
+          <img loading="lazy" src="img/zirka-17.jpg.jpeg" alt="Galería 17">
+          <img loading="lazy" src="img/zirka-18.jpg.jpeg" alt="Galería 18">
+          <img loading="lazy" src="img/zirka-19.jpg.jpeg" alt="Galería 19">
+          <img loading="lazy" src="img/zirka-20.jpg.jpeg" alt="Galería 20">
+          <img loading="lazy" src="img/zirka-21.jpg.jpeg" alt="Galería 21">
+          <img loading="lazy" src="img/zirka-22.jpg.jpeg" alt="Galería 22">
+          <img loading="lazy" src="img/zirka-23.jpg.jpeg" alt="Galería 23">
+          <img loading="lazy" src="img/zirka-24.jpg.jpeg" alt="Galería 24">
+          <img loading="lazy" src="img/zirka-25.jpg.jpeg" alt="Galería 25">
+          <img loading="lazy" src="img/zirka-26.jpg.jpeg" alt="Galería 26">
+          <img loading="lazy" src="img/zirka-27.jpg.jpeg" alt="Galería 27">
+          <img loading="lazy" src="img/zirka-28.jpg.jpeg" alt="Galería 28">
+          <img loading="lazy" src="img/zirka-29.jpg.jpeg" alt="Galería 29">
+          <img loading="lazy" src="img/zirka-30.jpg.jpeg" alt="Galería 30">
+          <img loading="lazy" src="img/zirka-31.jpg.jpeg" alt="Galería 31">
+          <img loading="lazy" src="img/zirka-32.jpg.jpeg" alt="Galería 32">
+          <img loading="lazy" src="img/zirka-33.jpg.jpeg" alt="Galería 33">
+          <img loading="lazy" src="img/zirka-34.jpg.jpeg" alt="Galería 34">
+          <img loading="lazy" src="img/zirka-35.jpg.jpeg" alt="Galería 35">
+          <img loading="lazy" src="img/zirka-36.jpg.jpeg" alt="Galería 36">
+          <img loading="lazy" src="img/zirka-37.jpg.jpeg" alt="Galería 37">
+          <img loading="lazy" src="img/zirka-38.jpg.jpeg" alt="Galería 38">
+          <img loading="lazy" src="img/zirka-39.jpg.jpeg" alt="Galería 39">
+          <img loading="lazy" src="img/zirka-40.jpg.jpeg" alt="Galería 40">
         </div>
       </div>
     </section>
@@ -385,13 +468,13 @@
         <h2>Contacto</h2>
         <p>Asociación Cultural Ucraniana “27 de Agosto” — Posadas</p>
         <p>Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/balletzirka.posadas" target="_blank">@balletzirka.posadas</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/balletzirka.posadas" target="_blank" rel="noopener">@balletzirka.posadas</a></p>
 
         <form onsubmit="alert('Formulario simulado. Para uso real, integrar Google Forms o backend.');return false;">
           <input class="field" placeholder="Nombre" required>
           <input type="email" class="field" placeholder="Correo" required>
           <textarea class="field" rows="4" placeholder="Mensaje" required></textarea>
-          <button class="btn">Enviar</button>
+          <button class="btn" type="submit">Enviar</button>
         </form>
       </div>
     </section>
@@ -403,39 +486,61 @@
   </footer>
 
   <!-- WHATSAPP -->
-  <a class="wa-fab" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka%2C%20quiero%20hacer%20una%20consulta" target="_blank">
-    <img src="https://static.whatsapp.net/rsrc.php/v3/yP/r/rYZqPCBaG70.png"> WhatsApp
+  <a class="wa-fab" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="https://static.whatsapp.net/rsrc.php/v3/yP/r/rYZqPCBaG70.png" alt="" aria-hidden="true"> WhatsApp
   </a>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <span class="close" id="lbClose">×</span>
-    <img id="lbImg">
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+    <span class="close" id="lbClose" aria-label="Cerrar">×</span>
+    <img id="lbImg" alt="Imagen ampliada">
   </div>
 
   <script>
+    // Año footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Menú mobile
     const ham = document.querySelector(".hamburger");
     const nav = document.getElementById("nav");
-    ham.onclick = () => {
+    ham.addEventListener("click", () => {
       nav.classList.toggle("show");
       ham.setAttribute("aria-expanded", nav.classList.contains("show"));
-    };
+    });
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      nav.classList.remove("show");
+      ham.setAttribute("aria-expanded", "false");
+    }));
 
+    // Lightbox (galería)
     const lb = document.getElementById("lightbox");
     const lbImg = document.getElementById("lbImg");
+    const lbClose = document.getElementById("lbClose");
 
-    document.getElementById("gal").addEventListener("click", e => {
-      if(e.target.tagName === "IMG"){
-        lbImg.src = e.target.src;
+    const gal = document.getElementById("gal");
+    gal.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.tagName === "IMG") {
+        lbImg.src = t.src;
         lb.classList.add("active");
       }
     });
 
-    document.getElementById("lbClose").onclick = () => lb.classList.remove("active");
-    lb.onclick = e => { if(e.target===lb) lb.classList.remove("active") };
-    document.onkeydown = e => { if(e.key==="Escape") lb.classList.remove("active") };
+    function closeLB(){
+      lb.classList.remove("active");
+      lbImg.src = "";
+    }
+    lbClose.addEventListener("click", closeLB);
+    lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
+
+    // 🎆 Overlay Feliz 2026: se oculta solo a los 5s
+    const ny = document.getElementById("nyOverlay");
+    setTimeout(() => {
+      if (!ny) return;
+      ny.classList.add("hide");
+      setTimeout(() => ny.remove(), 700);
+    }, 5000);
   </script>
 
 </body>
