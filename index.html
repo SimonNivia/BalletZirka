@@ -239,101 +239,120 @@
       to{opacity:1;transform:none}
     }
 
-    /* ===================== SALUDO 2026 (PRO) ===================== */
-    .ny-overlay{
+    /* ===================== SALUDO 2026 — OPCIÓN A (ESCÉNICA / INSTITUCIONAL) ===================== */
+    .nyA-overlay{
       position:fixed;
       inset:0;
-      background:rgba(10,10,30,.92);
+      background:radial-gradient(circle at top, rgba(32,28,92,.95), rgba(6,6,18,.98));
       display:flex;
       align-items:center;
       justify-content:center;
       z-index:12000;
-
-      animation:nyFadeOut 1s ease forwards;
+      overflow:hidden;
+      animation:nyA-fadeOut 1s ease forwards;
       animation-delay:5s;
     }
 
-    .ny-box{
+    /* “Escena” */
+    .nyA-stage{
+      position:relative;
+      width:min(980px, 92vw);
+      padding:64px 26px 58px;
       text-align:center;
-      position:relative;
-      padding:44px 34px;
-      width:min(860px,92vw);
     }
 
-    .ny-title{
-      font-size:42px;
+    /* Texto entra desde abajo */
+    .nyA-title{
+      font-size:44px;
       font-weight:900;
-      line-height:1.15;
+      line-height:1.12;
       color:var(--gold1);
-      position:relative;
-      overflow:hidden;
-      text-shadow:0 10px 30px rgba(0,0,0,.55);
+      text-shadow:0 10px 35px rgba(0,0,0,.65);
+      animation:nyA-rise 1s ease both;
     }
-
-    /* Brillo dorado */
-    .ny-title::after{
-      content:"";
-      position:absolute;
-      top:0;
-      left:-150%;
-      width:55%;
-      height:100%;
-      background:linear-gradient(120deg,transparent,rgba(255,255,255,.75),transparent);
-      animation:shine 2.4s ease forwards;
-    }
-    @keyframes shine{to{left:150%}}
-
-    .ny-sub{
-      margin-top:12px;
-      color:#eaeaea;
+    .nyA-sub{
+      margin-top:14px;
+      color:#e9e9e9;
       font-weight:700;
       opacity:.95;
-      text-shadow:0 10px 24px rgba(0,0,0,.5);
+      text-shadow:0 10px 24px rgba(0,0,0,.6);
+      animation:nyA-rise 1.05s ease both;
+      animation-delay:.10s;
     }
 
-    /* Polvo dorado */
-    .ny-dust{
+    /* Brillo lento tipo reflector */
+    .nyA-spot{
+      position:absolute;
+      inset:-20% -15%;
+      background:
+        radial-gradient(circle at 50% 35%,
+          rgba(255,255,255,.22),
+          rgba(255,255,255,.10) 25%,
+          rgba(255,255,255,0) 55%);
+      filter:blur(2px);
+      opacity:.18;
+      animation:nyA-spotMove 4.8s ease-in-out infinite;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+
+    /* Estrellas ascendentes */
+    .nyA-stars{
       position:absolute;
       inset:0;
       pointer-events:none;
       overflow:hidden;
-      border-radius:16px;
     }
-
-    .ny-dust span{
+    .nyA-stars span{
       position:absolute;
-      width:6px;height:6px;
+      bottom:-12px;
+      width:5px;
+      height:5px;
       border-radius:50%;
-      background:radial-gradient(circle,var(--gold2),var(--gold1));
-      opacity:.55;
-      animation:dust 6s ease-in-out infinite;
-      filter:drop-shadow(0 0 6px rgba(252,234,187,.35));
+      background:radial-gradient(circle, var(--gold2), var(--gold1));
+      opacity:.0;
+      filter:drop-shadow(0 0 8px rgba(252,234,187,.28));
+      animation:nyA-starUp linear infinite;
     }
 
-    @keyframes dust{
-      0%,100%{transform:translateY(0);opacity:.25}
-      50%{transform:translateY(-22px);opacity:.85}
+    @keyframes nyA-rise{
+      from{opacity:0; transform:translateY(28px)}
+      to{opacity:1; transform:translateY(0)}
     }
 
-    @keyframes nyFadeOut{
-      to{opacity:0;visibility:hidden}
+    @keyframes nyA-spotMove{
+      0%,100%{transform:translateX(-2%) translateY(0%); opacity:.16}
+      50%{transform:translateX(2%) translateY(2%); opacity:.24}
+    }
+
+    @keyframes nyA-starUp{
+      0%{transform:translateY(0) scale(.85); opacity:0}
+      12%{opacity:.55}
+      100%{transform:translateY(-120vh) scale(1.2); opacity:0}
+    }
+
+    @keyframes nyA-fadeOut{
+      to{opacity:0; visibility:hidden}
     }
 
     @media(max-width:600px){
-      .ny-title{font-size:28px}
-      .ny-sub{font-size:14px}
+      .nyA-title{font-size:28px}
+      .nyA-sub{font-size:14px}
+      .nyA-stage{padding:54px 18px 46px}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- SALUDO 2026 -->
-  <div class="ny-overlay" id="ny2026" aria-hidden="true">
-    <div class="ny-box">
-      <div class="ny-dust" id="dust"></div>
-      <div class="ny-title">El Ballet Zirka les desea<br>un feliz 2026</div>
-      <div class="ny-sub">Gracias por acompañarnos con cultura, tradición y danza.</div>
+  <!-- SALUDO 2026 — Opción A -->
+  <div class="nyA-overlay" id="ny2026" aria-hidden="true">
+    <div class="nyA-stage">
+      <div class="nyA-spot" aria-hidden="true"></div>
+      <div class="nyA-stars" id="nyStars" aria-hidden="true"></div>
+
+      <div class="nyA-title">El Ballet Zirka les desea<br>un feliz 2026</div>
+      <div class="nyA-sub">Gracias por acompañarnos con cultura, tradición y danza.</div>
     </div>
   </div>
 
@@ -600,22 +619,29 @@
     lb.addEventListener("click", e => { if(e.target === lb) closeLB(); });
     document.addEventListener("keydown", e => { if(e.key === "Escape") closeLB(); });
 
-    // Saludo 2026: polvo dorado
-    const dust = document.getElementById("dust");
-    for(let i=0;i<34;i++){
-      const s = document.createElement("span");
-      s.style.left = (Math.random()*100) + "%";
-      s.style.top  = (Math.random()*100) + "%";
-      s.style.animationDelay = (Math.random()*4) + "s";
-      s.style.transform = "translateY(" + (Math.random()*10) + "px)";
-      dust.appendChild(s);
-    }
+    // ================= SALUDO 2026 (Opción A): estrellas ascendentes =================
+    (function(){
+      const starWrap = document.getElementById("nyStars");
+      if(!starWrap) return;
 
-    // Desaparece solo (5s + fade)
-    setTimeout(()=>{
-      const ny = document.getElementById("ny2026");
-      if(ny) ny.remove();
-    }, 6000);
+      const COUNT = 44;
+      for(let i=0;i<COUNT;i++){
+        const s = document.createElement("span");
+        s.style.left = (Math.random()*100) + "%";
+        s.style.animationDelay = (Math.random()*2.2) + "s";
+        s.style.animationDuration = (4.8 + Math.random()*3.8) + "s";
+        const size = 3 + Math.random()*3.5;
+        s.style.width = size + "px";
+        s.style.height = size + "px";
+        starWrap.appendChild(s);
+      }
+
+      // Desaparece solo (5s + fade out)
+      setTimeout(()=>{
+        const ny = document.getElementById("ny2026");
+        if(ny) ny.remove();
+      }, 6000);
+    })();
   </script>
 
 </body>
