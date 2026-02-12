@@ -1,476 +1,283 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ballet Zirka — Asociación Cultural Ucraniana 27 de Agosto</title>
-  <meta name="description" content="Ballet Ucraniano Infanto-Juvenil Zirka. Danza ucraniana, identidad cultural y formación artística desde 1989 en Posadas.">
+<title>Ballet Zirka — Asociación Cultural Ucraniana 27 de Agosto</title>
+<meta name="description" content="Ballet Ucraniano Infanto-Juvenil Zirka. Danza ucraniana, identidad cultural y formación artística desde 1989 en Posadas.">
 
-  <link rel="icon" href="img/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#1e1b4b;
-      --txt:#ffffff;
-      --txtSoft:#e4e4e4;
-      --cardBg:linear-gradient(160deg, #2c226d, #1a163f);
-      --gold1:#d4af37;
-      --gold2:#fceabb;
-      --border:rgba(255,255,255,.22);
-    }
+<style>
+:root{
+--bg:#1e1b4b;
+--txt:#ffffff;
+--txtSoft:#e4e4e4;
+--cardBg:linear-gradient(160deg, #2c226d, #1a163f);
+--gold1:#d4af37;
+--gold2:#fceabb;
+--border:rgba(255,255,255,.22);
+}
 
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--txt);
-      font-family:Inter, system-ui;
-    }
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:var(--bg);
+color:var(--txt);
+font-family:Inter, system-ui;
+}
 
-    a{color:#8be9fd;text-decoration:none}
+a{color:#8be9fd;text-decoration:none}
 
-    /* ===== BANNER INSCRIPCIONES PREMIUM ===== */
-    .inscripciones-banner{
-      position:relative;
-      background:linear-gradient(270deg,#d4af37,#fceabb,#d4af37);
-      background-size:600% 600%;
-      animation:goldFlow 8s ease infinite;
-      color:#000;
-      padding:14px 10px;
-      text-align:center;
-      font-weight:900;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      box-shadow:0 4px 18px rgba(0,0,0,.35);
-      z-index:2000;
-    }
+/* ===== BANNER LLAMATIVO ===== */
+.inscripciones-banner{
+background:linear-gradient(270deg,#d4af37,#fceabb,#d4af37);
+background-size:600% 600%;
+animation:goldFlow 8s ease infinite;
+color:#000;
+padding:14px 10px;
+text-align:center;
+font-weight:900;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+box-shadow:0 4px 18px rgba(0,0,0,.35);
+z-index:2000;
+}
 
-    @keyframes goldFlow{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
+@keyframes goldFlow{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
 
-    .inscripciones-banner span{
-      font-size:16px;
-      letter-spacing:.8px;
-    }
+.inscripciones-banner span{
+font-size:16px;
+letter-spacing:.8px;
+}
 
-    .banner-btn{
-      background:#1e1b4b;
-      color:white;
-      padding:8px 16px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:800;
-      text-decoration:none;
-      transition:.3s;
-      box-shadow:0 6px 16px rgba(0,0,0,.4);
-    }
+.banner-btn{
+background:#1e1b4b;
+color:white;
+padding:8px 16px;
+border-radius:999px;
+font-size:13px;
+font-weight:800;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 6px 16px rgba(0,0,0,.4);
+}
 
-    .banner-btn:hover{
-      transform:translateY(-2px);
-      background:#2c226d;
-    }
+.banner-btn:hover{
+transform:translateY(-2px);
+background:#2c226d;
+}
 
-    /* HEADER */
-    header{
-      position:sticky;top:0;z-index:1000;
-      background:rgba(0,0,0,.30);
-      backdrop-filter:blur(6px);
-      padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
+/* HEADER */
+header{
+position:sticky;top:0;z-index:1000;
+background:rgba(0,0,0,.30);
+backdrop-filter:blur(6px);
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,.10);
+}
 
-    .container{max-width:1200px;margin:auto;padding:0 20px}
-    .navwrap{display:flex;justify-content:space-between;align-items:center;}
-    .brand{display:flex;align-items:center;gap:16px;}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+.navwrap{display:flex;justify-content:space-between;align-items:center;}
+.brand{display:flex;align-items:center;gap:16px;}
 
-    .logoimg{
-      width:140px;height:auto;display:block;
-      object-fit:contain;
-      filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
-    }
+.logoimg{
+width:140px;height:auto;display:block;
+object-fit:contain;
+filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
+}
 
-    .brand-title{font-weight:900;font-size:22px}
-    .brand-sub{font-size:13px;color:var(--txtSoft)}
+.brand-title{font-weight:900;font-size:22px}
+.brand-sub{font-size:13px;color:var(--txtSoft)}
 
-    .navlinks{display:flex;gap:20px;font-weight:700;}
-    .navlinks a{
-      padding:8px 12px;border-radius:10px;color:#fff;transition:.25s;
-    }
-    .navlinks a:hover{background:rgba(255,255,255,.15)}
+.navlinks{display:flex;gap:20px;font-weight:700;}
+.navlinks a{
+padding:8px 12px;border-radius:10px;color:#fff;transition:.25s;
+}
+.navlinks a:hover{background:rgba(255,255,255,.15)}
 
-    .hamburger{
-      display:none;background:rgba(255,255,255,.15);
-      padding:10px;border-radius:10px;
-      cursor:pointer;border:1px solid rgba(255,255,255,.3);
-    }
+.hamburger{
+display:none;background:rgba(255,255,255,.15);
+padding:10px;border-radius:10px;
+cursor:pointer;border:1px solid rgba(255,255,255,.3);
+}
 
-    .hamburger .bar{
-      width:22px;height:2px;background:white;margin:5px 0;border-radius:3px;
-    }
+.hamburger .bar{
+width:22px;height:2px;background:white;margin:5px 0;border-radius:3px;
+}
 
-    @media(max-width:800px){
-      .logoimg{width:105px}
-      .hamburger{display:block}
-      .navlinks{
-        display:none;flex-direction:column;background:rgba(0,0,0,.35);
-        width:100%;padding:12px;margin-top:12px;border-radius:12px;
-      }
-      .navlinks.show{display:flex}
-    }
+@media(max-width:800px){
+.logoimg{width:105px}
+.hamburger{display:block}
+.navlinks{
+display:none;flex-direction:column;background:rgba(0,0,0,.35);
+width:100%;padding:12px;margin-top:12px;border-radius:12px;
+}
+.navlinks.show{display:flex}
+}
 
-    /* HERO */
-    .hero{
-      position:relative;
-      width:100%;
-      height:63vh;
-      min-height:420px;
-      background:url('img/imgbg-zirka-1.jpg?v=2') center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-      overflow:hidden;
-    }
+/* HERO */
+.hero{
+position:relative;
+width:100%;
+height:63vh;
+min-height:420px;
+background:url('img/imgbg-zirka-1.jpg?v=2') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+overflow:hidden;
+}
 
-    .hero::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(to bottom,
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.65)
-      );
-    }
+.hero::after{
+content:"";
+position:absolute;inset:0;
+background:linear-gradient(to bottom,
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.65)
+);
+}
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      padding:20px;
-      animation:fadeUp .9s ease both;
-    }
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
 
-    .hero h1{
-      font-size:46px;
-      font-weight:900;
-      line-height:1.1;
-      text-shadow:0 4px 14px rgba(0,0,0,.6);
-    }
+.hero h1{
+font-size:46px;
+font-weight:900;
+line-height:1.1;
+text-shadow:0 4px 14px rgba(0,0,0,.6);
+}
 
-    .hero p{
-      font-size:18px;margin-top:10px;color:#e8e8e8;
-      text-shadow:0 4px 14px rgba(0,0,0,.6);
-    }
+.hero p{
+font-size:18px;margin-top:10px;color:#e8e8e8;
+text-shadow:0 4px 14px rgba(0,0,0,.6);
+}
 
-    @media(max-width:600px){
-      .hero h1{font-size:30px}
-      .hero p{font-size:15px}
-    }
+.cta{
+display:inline-block;padding:14px 24px;margin-top:20px;
+font-weight:900;border-radius:14px;color:#000;
+background:linear-gradient(135deg,var(--gold1),var(--gold2));
+border:1px solid rgba(0,0,0,.25);
+box-shadow:0 10px 28px rgba(0,0,0,.35);
+transition:.25s;
+}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
 
-    .cta{
-      display:inline-block;padding:14px 24px;margin-top:20px;
-      font-weight:900;border-radius:14px;color:#000;
-      background:linear-gradient(135deg,var(--gold1),var(--gold2));
-      border:1px solid rgba(0,0,0,.25);
-      box-shadow:0 10px 28px rgba(0,0,0,.35);
-      transition:.25s;
-    }
+.card{
+background:var(--cardBg);
+margin-top:30px;padding:26px;
+border-radius:16px;border:1px solid var(--border);
+box-shadow:0 12px 32px rgba(0,0,0,.4);
+}
 
-    .cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.grid{display:grid;gap:24px}
+.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 
-    .card{
-      background:var(--cardBg);
-      margin-top:30px;padding:26px;
-      border-radius:16px;border:1px solid var(--border);
-      box-shadow:0 12px 32px rgba(0,0,0,.4);
-      animation:fadeUp .7s ease both;
-    }
+.gallery{
+display:grid;gap:12px;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+}
 
-    .grid{display:grid;gap:24px}
-    .two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.gallery img{
+width:100%;height:150px;object-fit:cover;
+border-radius:12px;cursor:pointer;
+transition:.25s;box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+.gallery img:hover{transform:scale(1.05)}
 
-    .gallery{
-      display:grid;gap:12px;
-      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-    }
+.lightbox{
+position:fixed;inset:0;
+background:rgba(0,0,0,.85);
+display:none;align-items:center;justify-content:center;
+z-index:9999;
+}
+.lightbox.active{display:flex}
+.lightbox img{
+max-width:95vw;max-height:85vh;border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+.lightbox .close{
+position:absolute;top:20px;right:30px;color:#fff;
+font-size:32px;font-weight:900;cursor:pointer;
+}
 
-    .gallery img{
-      width:100%;height:150px;object-fit:cover;
-      border-radius:12px;cursor:pointer;
-      transition:.25s;box-shadow:0 8px 20px rgba(0,0,0,.35);
-    }
-
-    .gallery img:hover{transform:scale(1.05)}
-
-    .lightbox{
-      position:fixed;inset:0;
-      background:rgba(0,0,0,.85);
-      display:none;align-items:center;justify-content:center;
-      z-index:9999;
-    }
-
-    .lightbox.active{display:flex}
-
-    .lightbox img{
-      max-width:95vw;max-height:85vh;border-radius:12px;
-      box-shadow:0 20px 40px rgba(0,0,0,.6);
-    }
-
-    .lightbox .close{
-      position:absolute;top:20px;right:30px;color:#fff;
-      font-size:32px;font-weight:900;cursor:pointer;
-    }
-
-    .field{
-      width:100%;padding:12px;margin-bottom:12px;
-      border-radius:12px;background:rgba(255,255,255,.1);
-      border:1px solid rgba(255,255,255,.3);color:white;
-    }
-
-    .btn{
-      padding:12px 20px;border-radius:12px;font-weight:900;
-      background:linear-gradient(135deg,var(--gold1),var(--gold2));
-      color:black;border:none;cursor:pointer;
-    }
-
-    .wa-fab{
-      position:fixed;right:22px;bottom:22px;
-      background:#25D366;color:#0b371a;padding:12px 18px;
-      font-weight:900;border-radius:999px;display:flex;gap:8px;
-      box-shadow:0 14px 30px rgba(0,0,0,.35);z-index:2000;
-    }
-
-    .wa-fab img{width:22px}
-
-    footer{
-      text-align:center;padding:32px 0;color:var(--txtSoft);margin-top:40px;
-    }
-
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(14px)}
-      to{opacity:1;transform:none}
-    }
-  </style>
+footer{
+text-align:center;padding:32px 0;color:var(--txtSoft);margin-top:40px;
+}
+</style>
 </head>
 
 <body>
 
+<!-- BANNER -->
 <div class="inscripciones-banner">
-  <span>✨ INSCRIPCIONES ABIERTAS 2026 ✨ — Sumate a Ballet Zirka</span>
-  <a class="banner-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header" target="_blank">
-    INSCRIBIRME
-  </a>
+<span>✨ INSCRIPCIONES ABIERTAS 2026 ✨ — Sumate a Ballet Zirka</span>
+<a class="banner-btn"
+href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header"
+target="_blank">
+INSCRIBIRME
+</a>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="container navwrap">
+<div class="brand">
+<img src="img/zirka-logo.png" class="logoimg">
+<div>
+<div class="brand-title">Ballet Zirka</div>
+<div class="brand-sub">Asociación Cultural Ucraniana “27 de Agosto” — Posadas</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>Ballet Ucraniano Infanto-Juvenil Zirka</h1>
+<p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
+<a class="cta"
+href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header"
+target="_blank">
+Quiero inscribirme
+</a>
 </div>
 </section>
 
+<!-- CONTENIDO -->
 <main class="container">
-    <!-- RESUMEN -->
-    <div class="card">
-      <h3>Resumen</h3>
-      <p>Zirka es el semillero cultural de la Asociación Cultural Ucraniana “27 de Agosto”. Con más de 50 alumnos de 4 a 16 años, el ballet combina danza, identidad, valores comunitarios y formación integral a través de disciplinas artísticas y culturales.</p>
-    </div>
+<div class="card">
+<h3>Resumen</h3>
+<p>Zirka es el semillero cultural...</p>
+</div>
+</main>
 
-    <!-- HISTORIA -->
-    <section id="historia" class="grid two">
-      <div class="card">
-        <h2>Nacimiento y primeros años</h2>
-        <p>El Ballet Infanto-Juvenil Zirka nació el 2 de abril de 1989 como el semillero de la Asociación Cultural Ucraniana “27 de Agosto”. Su creación respondió al entusiasmo de los niños que, inspirados por el Ballet de mayores, buscaban también un espacio para expresarse a través de la danza ucraniana.</p>
+<footer>
+© <span id="year"></span> Ballet Zirka — Asociación Cultural Ucraniana “27 de Agosto”
+<br>
+<span style="display:block;margin-top:10px;font-size:14px;">
+Desarrollo web realizado por <strong>Zviazok Solutions</strong>
+</span>
+</footer>
 
-        <p>En sus inicios, las clases estaban dirigidas a niños de entre 4 y 17 años, bajo la conducción de Jorge Brycki y Rosa Melnik. En aquel tiempo, el grupo se conocía como “Ballet Ucraniano Infantil de la Ciudad de Posadas”.</p>
-
-        <p>En 1988, la dirección pasó a manos de Alicia Debeluk, Norma Brycki, Ramón Kruki y Alberto Brycki. Ellos le dieron al grupo una identidad propia y eligieron el nombre “Zirka”, que en ucraniano significa “estrella”.</p>
-      </div>
-
-      <div class="card">
-        <h2>Crecimiento y actualidad</h2>
-        <p>A lo largo de 36 años, Zirka ha formado generaciones de niños y jóvenes, convirtiéndose en una referencia de la cultura ucraniana en Posadas y en la región. Actualmente reúne a más de 50 alumnos de 4 a 16 años.</p>
-
-        <p>Además de danza, se enseñan idioma ucraniano, historia, geografía, bordado tradicional y artes visuales. Estas disciplinas son impartidas por integrantes del ballet adulto, quienes se capacitan constantemente en talleres nacionales e internacionales.</p>
-
-        <p>Todo el trabajo es ad honorem y cuenta con un fuerte acompañamiento de familias y colaboradores, quienes organizan actividades para sostener las propuestas culturales del grupo.</p>
-      </div>
-    </section>
-
-    <!-- LOGROS -->
-    <section id="logros">
-      <div class="card">
-        <h2>Logros y participación</h2>
-
-        <h3>Eventos destacados</h3>
-        <ul>
-          <li>Reto Hopak 2018 — Colonia Fram, Paraguay (Mejor Destreza)</li>
-          <li>Parque del Conocimiento 2016 — Posadas</li>
-          <li>Encuentro de Ballets Ucranios 2022 — Oberá</li>
-          <li>Fiesta Internacional de la Yerba Mate 2023 — Apóstoles</li>
-          <li>Peña de Colectividades — Profesorado de Geografía, Posadas</li>
-          <li>Fiesta Nacional de la Navidad 2024 — Leandro N. Alem</li>
-          <li>Festival “35 años Zirka” — Posadas</li>
-        </ul>
-
-        <h3>Participación local, nacional e internacional</h3>
-        <ul>
-          <li>Fiesta Internacional de la Yerba Mate — Apóstoles</li>
-          <li>Fiesta Nacional e Internacional del Inmigrante — Oberá</li>
-          <li>Reto Hopak — Paraguay</li>
-          <li>Fiesta Nacional de la Navidad — Alem</li>
-          <li>Encuentro de Ballets Ucranios — Oberá</li>
-          <li>Fiesta de las Raíces — Jardín América</li>
-          <li>Fiesta Nacional de las Colectividades — Santa Fé</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- GALERÍA -->
-    <section id="galeria">
-      <div class="card">
-        <h2>Galería de fotos</h2>
-        <p>Clic para ampliar.</p>
-
-        <div class="gallery" id="gal">
-
-          <!-- 40 imágenes reales -->
-          <img loading="lazy" src="img/zirka-1.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-2.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-3.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-4.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-5.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-6.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-7.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-8.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-9.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-10.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-11.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-12.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-13.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-14.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-15.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-16.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-17.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-18.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-19.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-20.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-21.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-22.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-23.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-24.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-25.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-26.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-27.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-28.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-29.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-30.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-31.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-32.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-33.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-34.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-35.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-36.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-37.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-38.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-39.jpg.jpeg">
-          <img loading="lazy" src="img/zirka-40.jpg.jpeg">
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ACTIVIDADES -->
-    <section id="actividades">
-      <div class="card">
-        <h2>Actividades y talleres</h2>
-        <ul>
-          <li>Idioma ucraniano</li>
-          <li>Historia y geografía</li>
-          <li>Bordado tradicional</li>
-          <li>Pintura y artes visuales</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- INSCRIPCIÓN -->
-    <section id="inscripcion">
-      <div class="card" style="text-align:center">
-        <h2>Inscripciones Abiertas 2026</h2>
-        <p>Niños y jóvenes de 4 a 16 años pueden formar parte del Ballet Zirka.</p>
-        <p>Formación en danza ucraniana, cultura, valores y expresión artística.</p>
-
-        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header" target="_blank">
-          Completar Formulario de Inscripción
-        </a>
-
-        <p style="margin-top:15px;color:var(--txtSoft);font-size:14px;">
-          Cupos limitados.
-        </p>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <div class="card">
-        <h2>Contacto</h2>
-        <p>Asociación Cultural Ucraniana “27 de Agosto” — Posadas</p>
-        <p>Correo: <a href="mailto:balletucranianozirka@gmail.com">balletucranianozirka@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/balletzirka.posadas" target="_blank">@balletzirka.posadas</a></p>
-
-        <form onsubmit="alert('Formulario simulado. Para uso real, integrar Google Forms o backend.');return false;">
-          <input class="field" placeholder="Nombre" required>
-          <input type="email" class="field" placeholder="Correo" required>
-          <textarea class="field" rows="4" placeholder="Mensaje" required></textarea>
-          <button class="btn">Enviar</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © <span id="year"></span> Ballet Zirka — Asociación Cultural Ucraniana “27 de Agosto”
-    <br>
-    <span style="display:block;margin-top:10px;font-size:14px;">
-      Desarrollo web realizado por <strong>Zviazok Solutions</strong>
-    </span>
-  </footer>
-
-  <a class="wa-fab" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka%2C%20quiero%20hacer%20una%20consulta" target="_blank">
-    <img src="https://static.whatsapp.net/rsrc.php/v3/yP/r/rYZqPCBaG70.png"> WhatsApp
-  </a>
-
-  <div class="lightbox" id="lightbox">
-    <span class="close" id="lbClose">×</span>
-    <img id="lbImg">
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const ham = document.querySelector(".hamburger");
-    const nav = document.getElementById("nav");
-    ham.onclick = () => {
-      nav.classList.toggle("show");
-      ham.setAttribute("aria-expanded", nav.classList.contains("show"));
-    };
-
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-
-    document.getElementById("gal").addEventListener("click", e => {
-      if(e.target.tagName === "IMG"){
-        lbImg.src = e.target.src;
-        lb.classList.add("active");
-      }
-    });
-
-    document.getElementById("lbClose").onclick = () => lb.classList.remove("active");
-    lb.onclick = e => { if(e.target===lb) lb.classList.remove("active") };
-    document.onkeydown = e => { if(e.key==="Escape") lb.classList.remove("active") };
-  </script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
