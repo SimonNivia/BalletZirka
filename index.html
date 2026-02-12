@@ -1,4 +1,4 @@
-   <!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -15,9 +15,12 @@
       --bg:#1e1b4b;
       --txt:#ffffff;
       --txtSoft:#e4e4e4;
+
       --cardBg:linear-gradient(160deg, #2c226d, #1a163f);
+
       --gold1:#d4af37;
       --gold2:#fceabb;
+
       --border:rgba(255,255,255,.22);
     }
 
@@ -31,23 +34,6 @@
 
     a{color:#8be9fd;text-decoration:none}
 
-    /* ===== BANNER INSCRIPCIONES ===== */
-    .inscripciones-banner{
-      background:linear-gradient(135deg,var(--gold1),var(--gold2));
-      color:#000;
-      text-align:center;
-      font-weight:900;
-      padding:10px;
-      letter-spacing:.5px;
-      font-size:15px;
-      animation:pulseGlow 2s infinite;
-    }
-    @keyframes pulseGlow{
-      0%{box-shadow:0 0 0 rgba(0,0,0,0)}
-      50%{box-shadow:0 0 18px rgba(212,175,55,.6)}
-      100%{box-shadow:0 0 0 rgba(0,0,0,0)}
-    }
-
     /* HEADER */
     header{
       position:sticky;top:0;z-index:1000;
@@ -57,20 +43,32 @@
       border-bottom:1px solid rgba(255,255,255,.10);
     }
     .container{max-width:1200px;margin:auto;padding:0 20px}
-    .navwrap{display:flex;justify-content:space-between;align-items:center;}
-    .brand{display:flex;align-items:center;gap:16px;}
+
+    .navwrap{
+      display:flex;justify-content:space-between;align-items:center;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:16px;
+    }
+
     .logoimg{
       width:140px;height:auto;display:block;
       object-fit:contain;
       filter:drop-shadow(0px 0px 10px rgba(0,0,0,.55));
     }
+
     .brand-title{font-weight:900;font-size:22px}
     .brand-sub{font-size:13px;color:var(--txtSoft)}
-    .navlinks{display:flex;gap:20px;font-weight:700;}
+
+    .navlinks{
+      display:flex;gap:20px;font-weight:700;
+    }
     .navlinks a{
       padding:8px 12px;border-radius:10px;color:#fff;transition:.25s;
     }
     .navlinks a:hover{background:rgba(255,255,255,.15)}
+
     .hamburger{
       display:none;background:rgba(255,255,255,.15);
       padding:10px;border-radius:10px;
@@ -79,6 +77,7 @@
     .hamburger .bar{
       width:22px;height:2px;background:white;margin:5px 0;border-radius:3px;
     }
+
     @media(max-width:800px){
       .logoimg{width:105px}
       .hamburger{display:block}
@@ -93,7 +92,7 @@
     .hero{
       position:relative;
       width:100%;
-      height:63vh;
+      height:63vh; /* Cinematográfico */
       min-height:420px;
       background:url('img/imgbg-zirka-1.jpg?v=2') center/cover no-repeat;
       display:flex;
@@ -128,6 +127,11 @@
       text-shadow:0 4px 14px rgba(0,0,0,.6);
     }
 
+    @media(max-width:600px){
+      .hero h1{font-size:30px}
+      .hero p{font-size:15px}
+    }
+
     .cta{
       display:inline-block;padding:14px 24px;margin-top:20px;
       font-weight:900;border-radius:14px;color:#000;
@@ -138,6 +142,7 @@
     }
     .cta:hover{transform:translateY(-2px);filter:brightness(1.12)}
 
+    /* CARD */
     .card{
       background:var(--cardBg);
       margin-top:30px;padding:26px;
@@ -149,6 +154,7 @@
     .grid{display:grid;gap:24px}
     .two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 
+    /* GALLERY */
     .gallery{
       display:grid;gap:12px;
       grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
@@ -160,6 +166,7 @@
     }
     .gallery img:hover{transform:scale(1.05)}
 
+    /* LIGHTBOX */
     .lightbox{
       position:fixed;inset:0;
       background:rgba(0,0,0,.85);
@@ -176,6 +183,7 @@
       font-size:32px;font-weight:900;cursor:pointer;
     }
 
+    /* FORM */
     .field{
       width:100%;padding:12px;margin-bottom:12px;
       border-radius:12px;background:rgba(255,255,255,.1);
@@ -187,6 +195,7 @@
       color:black;border:none;cursor:pointer;
     }
 
+    /* WHATSAPP */
     .wa-fab{
       position:fixed;right:22px;bottom:22px;
       background:#25D366;color:#0b371a;padding:12px 18px;
@@ -208,47 +217,46 @@
 
 <body>
 
-<div class="inscripciones-banner">
-✨ INSCRIPCIONES ABIERTAS 2026 ✨ — Sumate a Ballet Zirka
-</div>
+  <!-- HEADER -->
+  <header>
+    <div class="container navwrap">
 
-<header>
-  <div class="container navwrap">
-    <div class="brand">
-      <img src="img/zirka-logo.png" alt="Logo Ballet Zirka" class="logoimg">
-      <div>
-        <div class="brand-title">Ballet Zirka</div>
-        <div class="brand-sub">Asociación Cultural Ucraniana “27 de Agosto” — Posadas</div>
+      <div class="brand">
+        <img src="img/zirka-logo.png" alt="Logo Ballet Zirka" class="logoimg">
+        <div>
+          <div class="brand-title">Ballet Zirka</div>
+          <div class="brand-sub">Asociación Cultural Ucraniana “27 de Agosto” — Posadas</div>
+        </div>
       </div>
+
+      <button class="hamburger" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="nav" class="navlinks">
+        <a href="#historia">Historia</a>
+        <a href="#logros">Logros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#actividades">Actividades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
     </div>
+  </header>
 
-    <button class="hamburger" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ballet Ucraniano Infanto-Juvenil Zirka</h1>
+      <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
+      <a class="cta" href="https://forms.gle/cnZ3HH1cykyxZVoF9" target="_blank">Quiero inscribirme</a>
+    </div>
+  </section>
 
-    <nav id="nav" class="navlinks">
-      <a href="#historia">Historia</a>
-      <a href="#logros">Logros</a>
-      <a href="#galeria">Galería</a>
-      <a href="#actividades">Actividades</a>
-      <a href="#inscripcion">Inscripción</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </div>
-</header>
+  <!-- MAIN -->
+  <main class="container">
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Ballet Ucraniano Infanto-Juvenil Zirka</h1>
-    <p>Identidad ucraniana, tradición y formación artística desde 1989.</p>
-    <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header" target="_blank">
-      Quiero inscribirme
-    </a>
-  </div>
-</section>
-
-<main class="container">
- <!-- RESUMEN -->
+    <!-- RESUMEN -->
     <div class="card">
       <h3>Resumen</h3>
       <p>Zirka es el semillero cultural de la Asociación Cultural Ucraniana “27 de Agosto”. Con más de 50 alumnos de 4 a 16 años, el ballet combina danza, identidad, valores comunitarios y formación integral a través de disciplinas artísticas y culturales.</p>
@@ -371,23 +379,6 @@
       </div>
     </section>
 
-    <!-- INSCRIPCIÓN -->
-    <section id="inscripcion">
-      <div class="card" style="text-align:center">
-        <h2>Inscripciones Abiertas 2026</h2>
-        <p>Niños y jóvenes de 4 a 16 años pueden formar parte del Ballet Zirka.</p>
-        <p>Formación en danza ucraniana, cultura, valores y expresión artística.</p>
-
-        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform?usp=header" target="_blank">
-          Completar Formulario de Inscripción
-        </a>
-
-        <p style="margin-top:15px;color:var(--txtSoft);font-size:14px;">
-          Cupos limitados.
-        </p>
-      </div>
-    </section>
-
     <!-- CONTACTO -->
     <section id="contacto">
       <div class="card">
@@ -409,16 +400,14 @@
 
   <footer>
     © <span id="year"></span> Ballet Zirka — Asociación Cultural Ucraniana “27 de Agosto”
-    <br>
-    <span style="display:block;margin-top:10px;font-size:14px;">
-      Desarrollo web realizado por <strong>Zviazok Solutions</strong>
-    </span>
   </footer>
 
+  <!-- WHATSAPP -->
   <a class="wa-fab" href="https://wa.me/543754456239?text=Hola%20Ballet%20Zirka%2C%20quiero%20hacer%20una%20consulta" target="_blank">
     <img src="https://static.whatsapp.net/rsrc.php/v3/yP/r/rYZqPCBaG70.png"> WhatsApp
   </a>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <span class="close" id="lbClose">×</span>
     <img id="lbImg">
