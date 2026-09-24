@@ -408,6 +408,69 @@ footer .footer-dev{font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes scaleUp{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+
+/* ─── AUSPICIANTES ─── */
+.sponsor-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:8px;
+}
+.sponsor-card{
+  background:var(--cardBg);
+  border:1px solid var(--cardBorder);
+  border-radius:16px;
+  padding:28px;
+  backdrop-filter:blur(4px);
+  display:flex;flex-direction:column;gap:16px;
+  transition:.25s;
+}
+.sponsor-card:hover{
+  border-color:rgba(212,175,55,.35);
+  background:rgba(255,255,255,.06);
+}
+.sponsor-logo-wrap{
+  display:flex;align-items:center;justify-content:center;
+  height:160px;
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+.sponsor-logo-wrap img{
+  max-height:140px;max-width:260px;
+  object-fit:contain;
+  filter:brightness(1.1);
+}
+.sponsor-logo-placeholder{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;
+  color:var(--gold2);letter-spacing:1px;
+}
+.sponsor-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;line-height:1.2;
+}
+.sponsor-info{display:flex;flex-direction:column;gap:10px;}
+.sponsor-row{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:13px;color:var(--txtSoft);line-height:1.5;
+}
+.sponsor-row .sicon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.sponsor-row a{color:var(--txtSoft);transition:.2s;}
+.sponsor-row a:hover{color:#fff;}
+.sponsor-socials{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;
+}
+.sponsor-socials a{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--txtSoft);transition:.2s;
+}
+.sponsor-socials a:hover{background:rgba(255,255,255,.15);color:#fff;}
+.sponsor-socials svg{width:13px;height:13px;}
 </style>
 </head>
 
@@ -444,6 +507,7 @@ footer .footer-dev{font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;}
       <a href="#actividades">Actividades</a>
       <a href="#organigrama">Equipo</a>
       <a href="#galeria">Galería</a>
+      <a href="#auspiciantes">Auspiciantes</a>
       <a href="#contacto">Contacto</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSezagDztQ1a3b33PGAxjpB-7SoXQY2ImRDTw68RnHu4w2ZF5w/viewform" target="_blank" class="nav-cta">Inscribirme</a>
     </nav>
@@ -816,6 +880,71 @@ footer .footer-dev{font-size:12px;color:rgba(255,255,255,.3);margin-top:16px;}
             <button class="btn-send">Enviar mensaje →</button>
           </form>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="golden-divider container"></div>
+
+  <!-- AUSPICIANTES -->
+  <section id="auspiciantes" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Quienes nos apoyan</span>
+        <h2>Auspiciantes</h2>
+        <p>Gracias a quienes hacen posible nuestra misión cultural.</p>
+      </div>
+
+      <div class="sponsor-grid">
+
+        <!-- ── ARTEPLANTAS ── -->
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="data:image/png;base64,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" alt="Logo Arteplantas">
+          </div>
+          <div class="sponsor-name">Arteplantas Florería</div>
+          <div class="sponsor-info">
+            <div class="sponsor-row">
+              <span class="sicon">📍</span>
+              <span>Av. República Oriental del Uruguay 3888, Posadas, Misiones</span>
+            </div>
+            <div class="sponsor-row">
+              <span class="sicon">📱</span>
+              <a href="tel:+543764642838">0376 464-2838</a>
+            </div>
+          </div>
+          <div class="sponsor-socials">
+            <a href="https://www.instagram.com/arteplantas_" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @arteplantas_
+            </a>
+            <a href="https://www.facebook.com/Arteplantas" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Arteplantas
+            </a>
+          </div>
+        </div>
+
+        <!-- ── TITO RECAMBIOS ── -->
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="data:image/jpeg;base64,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" alt="Logo Tito Recambios">
+          </div>
+          <div class="sponsor-name">Tito Recambios y Lubricantes</div>
+          <div class="sponsor-info">
+            <div class="sponsor-row">
+              <span class="sicon">📍</span>
+              <span>RN12, Garupá, Misiones</span>
+            </div>
+            <div class="sponsor-row">
+              <span class="sicon">📱</span>
+              <a href="tel:+543764366321">0376 436-6321</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Para agregar más auspiciantes, copiar un bloque <div class="sponsor-card">…</div> ── -->
 
       </div>
     </div>
